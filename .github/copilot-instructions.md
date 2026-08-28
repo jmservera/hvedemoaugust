@@ -22,4 +22,6 @@ description: Repository-wide source-of-truth, traceability, and approval rules f
 * Do not invent missing source material or report that a Confluence, Jira, or GitHub operation succeeded without tool evidence.
 * Ask for clarification when authoritative information is missing or conflicting.
 * Obtain human review before publishing documentation or mutating Jira. Local generation of working documents does not require prior approval.
+* Do not add `.copilot-tracking/` to `.gitignore`; keep the folder visible to Git so users can explicitly review and manage its artifacts.
+* Do not commit `.copilot-tracking/` artifacts containing transcripts, PII, customer-confidential information, credentials, or secrets without explicit human approval and required sanitization.
 * Never place credentials, API tokens, or secrets in repository instructions or chat.
