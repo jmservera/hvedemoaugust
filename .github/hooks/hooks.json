@@ -1,0 +1,47 @@
+{
+	"version": 1,
+	"hooks": {
+		"SessionStart": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"UserPromptSubmit": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"PreToolUse": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"PostToolUse": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"SubagentStart": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"SubagentStop": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		],
+		"Stop": [
+			{
+				"type": "command",
+				"command": "node .github/hooks/hooks.js"
+			}
+		]
+	}
+}
