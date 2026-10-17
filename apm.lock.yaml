@@ -6,10 +6,11 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
+  resolved_ref: v0.19.0-pre
   version: 0.18.1
   package_type: apm_package
-  content_hash: sha256:5a0f3e26f0af9013dec264007838af6640f5cf0914f26790980dc5db9fbb6b2f
+  content_hash: sha256:1c47e9ad02cfbe5f216163cb33509e1a65813420140c1cb0b8c60992eb8f4412
 - repo_url: github/awesome-copilot
   name: azure-pricing
   host: github.com
@@ -3278,13 +3279,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-asbuilt-author
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-asbuilt-author.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-asbuilt-author.agent.md
   deployed_file_hashes:
@@ -3294,13 +3294,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-azure-architect
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-azure-architect.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-azure-architect.agent.md
   deployed_file_hashes:
@@ -3310,13 +3309,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-azure-diagnose
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-azure-diagnose.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-azure-diagnose.agent.md
   deployed_file_hashes:
@@ -3326,93 +3324,87 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-backlog-executor
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-backlog-executor.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-backlog-executor.agent.md
   deployed_file_hashes:
-    .github/agents/squad-backlog-executor.agent.md: sha256:6d088a780eaf317a1c96eba6907e07c73765b258dc980763c5f72395eecb76bc
-  content_hash: sha256:b3e0449e58265515bb7688a83544d3af15e0f5be4d3c7c2a0fd64399197a26f6
+    .github/agents/squad-backlog-executor.agent.md: sha256:5c05cc8ab323e95cccc7d9f94aa6e14248e3ff39310591bf0f5e2df1d946ac51
+  content_hash: sha256:73766522a50073f91007dd4f959639eea0d2853ba74a60c402318ee6dafe7de6
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-challenger
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-challenger.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-challenger.agent.md
   deployed_file_hashes:
-    .github/agents/squad-challenger.agent.md: sha256:f46d2591f48a215f60d35ba64d01f89e8b06c3adacf0c66d4ec4dc8fb12814ed
-  content_hash: sha256:dba1fd9ae4156eadf1d6f274de83a040ca1eff5e94abe4c4a9dc395d7109cc8a
+    .github/agents/squad-challenger.agent.md: sha256:a0a1fe15710770288d3afa7b4dabdfc1adff5647e3778a1f6f38e69536eab0f8
+  content_hash: sha256:2e7b8b5897e1cfbe83ab79fadbfe61231af4c9a29439b398a84b53dacc761bac
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-coordinator
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-coordinator.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-coordinator.agent.md
   deployed_file_hashes:
-    .github/agents/squad-coordinator.agent.md: sha256:9635c56846f562ec2227e2ae643ff92c47cbbb04a20adc1f4f3a8c6eafac51e2
-  content_hash: sha256:66ee06f414ddfee3e84203d48a0504b00c37fef2d2c9741dad236a449b82f56a
+    .github/agents/squad-coordinator.agent.md: sha256:f92477b01af0b8556af24fa2a0a171d9d674d92fdba765ca8b09d830cf8a050b
+  content_hash: sha256:7530d062bee4ad8b496c0cccf53d063fbc04e6065a4823dbe82ccb81cd2d02ac
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-cost-manager
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-cost-manager.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-cost-manager.agent.md
   deployed_file_hashes:
-    .github/agents/squad-cost-manager.agent.md: sha256:b9c570345937607c38b12e2e3be0ae8d0d2060317019a3c873cd99d70c50ef5e
-  content_hash: sha256:1c2bcbb5e664a4f52eb54398f56fde526779b5dc23e86b1b4eddf6d16e7a782f
+    .github/agents/squad-cost-manager.agent.md: sha256:8da9f07eb9bed6f81e4af6ed33445f3b109d6de0a5e03a1002446f83b1ca7556
+  content_hash: sha256:77d40739c9f4e24c18e8deca9bd09e2b618a676f442040ba04362dce2ea6a1ac
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-data-scientist
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-data-scientist.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-data-scientist.agent.md
   deployed_file_hashes:
-    .github/agents/squad-data-scientist.agent.md: sha256:0dc8a940fbfeb105676921679b7080347fe49bff43492cd68e8352779742ba27
-  content_hash: sha256:feed822bcc62a8691828500c2adc8921c505e4fc2b1513642aebeb2f7ab765c9
+    .github/agents/squad-data-scientist.agent.md: sha256:83ac5625e7243c48b4d68bdd916350ef06ff4d2cb16c5162316ed88de79e5e70
+  content_hash: sha256:ff881fb56b64faa3f2bade18a233f64362084f8f2a6110ae1949435a9b446340
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-deployer
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-deployer.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-deployer.agent.md
   deployed_file_hashes:
@@ -3422,25 +3414,23 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-document
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-document.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
-  content_hash: sha256:5d9c749e31b145ee3b65fa00d190ee1fa82bc20028d684dd1e78c2dd6d16655a
+  content_hash: sha256:3644104224a699bf68f16af1fa60f8460f1b1dd2a4405873c04ac736d3da6b74
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-federation-coordinator
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-federation-coordinator.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-federation-coordinator.agent.md
   deployed_file_hashes:
@@ -3450,25 +3440,23 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-governance-report
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-governance-report.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   content_hash: sha256:af49a30cd1b35723e09d084954a22ca7710a5a7b170c26772f24d3656e995f94
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-iac-author
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-iac-author.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-iac-author.agent.md
   deployed_file_hashes:
@@ -3478,57 +3466,53 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-implementor
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-implementor.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-implementor.agent.md
   deployed_file_hashes:
-    .github/agents/squad-implementor.agent.md: sha256:55abcb6319a5821bbe9f9e9b8f4de2f94df65e268de05f43ac2907aa23b602ff
-  content_hash: sha256:b80bb3cb73bfd7b1c4ea41bbf6aab9afaf7e412627c8302b952ae526506954a5
+    .github/agents/squad-implementor.agent.md: sha256:5612ebe6cff83f9f2eaeb0918f05d68ec5b766ec474c464230b2748173fa3e1f
+  content_hash: sha256:d27d707d931fce56af8b68579ce82242225d533a3f5d24e999f40e98139d1f0d
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-lead
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-lead.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-lead.agent.md
   deployed_file_hashes:
-    .github/agents/squad-lead.agent.md: sha256:62c27ad4ac901b8e8763f346085d05a3cbc166da020f3729d4c1a7e5b3b416e9
-  content_hash: sha256:b0c479a5e1e7c487e71717b5e0aaa8df6d206c25c8823e5ff6992f4dce6a7761
+    .github/agents/squad-lead.agent.md: sha256:cb73fd74cffe848152edfc0e81b785ebde566b9a7091a856f4143df026216b4c
+  content_hash: sha256:205f6eaf89ffc3e9852e9e615f17e5003255b5a72dcf5dbfeecce8e6fed3a93e
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-learn
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-learn.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   content_hash: sha256:ded651872acb033df153a60c1ca3b0d92da5643e817d5450e8fdc5970966ba2f
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-modernization-planner
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-modernization-planner.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-modernization-planner.agent.md
   deployed_file_hashes:
@@ -3538,125 +3522,117 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-observability-planner
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-observability-planner.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-observability-planner.agent.md
   deployed_file_hashes:
-    .github/agents/squad-observability-planner.agent.md: sha256:0b09322f1b98adee14369e7df1b47a6fed7d3b2b94b905dc0fbad5c5bf7247fe
-  content_hash: sha256:488840072e4688c2409bf34a0ddbab81a4750b271ee744f3b6d374760eb74997
+    .github/agents/squad-observability-planner.agent.md: sha256:9be5ee055e6cf3238bf343ac230f9ab81f254812cb72022fa7c53f95b0c85a56
+  content_hash: sha256:e93ca2dfa97df78b5af901133cc4e5eef8e4eab2ad26d2b345cc8130b18b04f6
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-performance-planner
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-performance-planner.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-performance-planner.agent.md
   deployed_file_hashes:
-    .github/agents/squad-performance-planner.agent.md: sha256:16d00a79d872454695eca7c8018742a58d7a54dd19b44ec99d82bb9a488cb3c5
-  content_hash: sha256:2d5f7d8353de13cd4724eaf853584445ed2ec2d18cdd8d97e07fc0b4bf15cae3
+    .github/agents/squad-performance-planner.agent.md: sha256:0d63d00683788ab36d1cf27614c64e0c6dfd09858df0a3f3fedebd6665f1378c
+  content_hash: sha256:d702e90547be67ebfd76b3a31c8bfe8a7c0eb0d133bde6942e74117956b23b41
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-prompt-engineer
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-prompt-engineer.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-prompt-engineer.agent.md
   deployed_file_hashes:
-    .github/agents/squad-prompt-engineer.agent.md: sha256:008953f88f9ba34beb995a170cb2c1d52eb86c3bf86393607c5cc1acf4c1dd95
-  content_hash: sha256:3e36e00db8be2954273ae1efbb6b2af300a4525ca16db7f704fd1e054684c1dd
+    .github/agents/squad-prompt-engineer.agent.md: sha256:f88eee04dca99969101584d837fa7e0c460accbc57b7b9e6ba69fc98998b187c
+  content_hash: sha256:4541e5e90333a4ba34abd798112ed293a65af9e6da3ea5415d86dd200732981a
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-researcher
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-researcher.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-researcher.agent.md
   deployed_file_hashes:
-    .github/agents/squad-researcher.agent.md: sha256:5a02d448805fb13ed8be85026383f8b0e70fd70621a47a89bcef1cbb0f6eba70
-  content_hash: sha256:7a7e9f47c407022e3a2a39abd4676732f7238734920227b6377f07c9f1014acd
+    .github/agents/squad-researcher.agent.md: sha256:460b879c681a4d91299dafe94eb4410974b2d76819f993d19fca86de8ce45da2
+  content_hash: sha256:98959b780b84288104b0dfc4ea0809234e934989d6fa82f1b366c57606814484
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-reviewer
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-reviewer.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-reviewer.agent.md
   deployed_file_hashes:
-    .github/agents/squad-reviewer.agent.md: sha256:deda45bf92ff925e5ea6e6463574739991667ed7ea3e5917be9cd2c90ce738ef
-  content_hash: sha256:80373726f6d44edc3f20e3913d27119704095dc8f23ce98c641d361b1937b5b4
+    .github/agents/squad-reviewer.agent.md: sha256:3cb88402a459be9a469c78045e718ff492aa29fed4c75ff30198ce0d127927c1
+  content_hash: sha256:48d6bcf647a27895e5e0230b1f105b3568159cb52e33e5a745ea5ce6245fb511
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-risk-manager
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-risk-manager.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-risk-manager.agent.md
   deployed_file_hashes:
-    .github/agents/squad-risk-manager.agent.md: sha256:41bfb2d5e297ae4e37d9657523851e37a896431cfac5caa0c85fad7c963c2cfc
-  content_hash: sha256:85d0f1757d3cfb30d4c921ca5494cb285527f446ef754dcd6c695e91955b6782
+    .github/agents/squad-risk-manager.agent.md: sha256:8e178b203cead111a43717cea7873ed392dba93883c4eff27c119678a9f398e6
+  content_hash: sha256:a8fc4c82e409bc3923515367812c01a30e18fcf64466b85c479f5a9ea68b2c03
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-scribe
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-scribe.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-scribe.agent.md
   deployed_file_hashes:
-    .github/agents/squad-scribe.agent.md: sha256:b6a1206cbf47e853459bab276c17447da87e44339825f266ee9439cb147fdf45
-  content_hash: sha256:e65fd709f341d3c9dcfc7e65d87e38e54e854ff2a6978c76384f62326ccfc449
+    .github/agents/squad-scribe.agent.md: sha256:f16bfdb80e27ef16b4b2779f82df13591fc78b1db3f132fd3161fc44c42fe9f9
+  content_hash: sha256:47b8df65b31b5277941ed94cce248ceca2d1e80b8f5978b3ab89107bf6ff1026
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-sql-migration-advisor
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-sql-migration-advisor.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-sql-migration-advisor.agent.md
   deployed_file_hashes:
@@ -3666,45 +3642,42 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-technical-writer
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-technical-writer.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-technical-writer.agent.md
   deployed_file_hashes:
-    .github/agents/squad-technical-writer.agent.md: sha256:2d067b28eaf8af5a21411eecd86ff2ce9d7b2bdd2bb27455bb13fa2827abab77
-  content_hash: sha256:ec68c2e5309152809d0f772d09e1f89923b878d9e5e29e6e007c3e74ffe9e956
+    .github/agents/squad-technical-writer.agent.md: sha256:ed84c69cc517d05ef706b5ed55bfd8f2ced921e6d1c1c6f2012dc572298de939
+  content_hash: sha256:efb1ccf78cdb3511ee8756d1de729484221e646616bde5b73814d14eda91abd8
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-vulnerability-manager
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/agents/squad/squad-vulnerability-manager.agent.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-vulnerability-manager.agent.md
   deployed_file_hashes:
-    .github/agents/squad-vulnerability-manager.agent.md: sha256:fea135afa09e41a394ea5435cae3c79b650b37b88fcaabbe9a30c0bcf3da9441
-  content_hash: sha256:18121f94e5f5121d450ffdfea8037f26d2deed3c0ce6fd3ba1e1bc37d8ddb634
+    .github/agents/squad-vulnerability-manager.agent.md: sha256:be2fe73e855821da26a5c62e6cdf7741b95ae55511cf60e6e6b88523f2733b60
+  content_hash: sha256:58d6713071b82f90c1f551c927f517dd1d7cf7b30851e63fb0441771e3d8046b
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-pptx-brand-template
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/pptx-brand-template.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/pptx-brand-template.instructions.md
   deployed_file_hashes:
@@ -3714,13 +3687,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-autonomous
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-autonomous.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-autonomous.instructions.md
   deployed_file_hashes:
@@ -3730,13 +3702,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-autopilot
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-autopilot.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-autopilot.instructions.md
   deployed_file_hashes:
@@ -3746,13 +3717,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-council
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-council.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-council.instructions.md
   deployed_file_hashes:
@@ -3762,13 +3732,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-discovery-gate
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-discovery-gate.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-discovery-gate.instructions.md
   deployed_file_hashes:
@@ -3778,13 +3747,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-federation-autopilot
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-federation-autopilot.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-federation-autopilot.instructions.md
   deployed_file_hashes:
@@ -3794,25 +3762,23 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-federation
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-federation.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
-  content_hash: sha256:b301e558fe2ac6e45a29e4ded65c1f4a351486dc431bd7d8224e9f1ed24299e2
+  content_hash: sha256:a14f3fedde21e6d893f9b450fbfbfa9d36e3c9aee2a2699e87e3c96fae702384
 - repo_url: peter-n91/hve-squad
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-floor
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-floor.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-floor.instructions.md
   deployed_file_hashes:
@@ -3822,13 +3788,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-intake-gate
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-intake-gate.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-intake-gate.instructions.md
   deployed_file_hashes:
@@ -3838,13 +3803,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-mcp-capability
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-mcp-capability.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-mcp-capability.instructions.md
   deployed_file_hashes:
@@ -3854,13 +3818,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-notifications
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-notifications.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-notifications.instructions.md
   deployed_file_hashes:
@@ -3870,13 +3833,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-roster
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-roster.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-roster.instructions.md
   deployed_file_hashes:
@@ -3886,13 +3848,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-routing
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-routing.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-routing.instructions.md
   deployed_file_hashes:
@@ -3902,13 +3863,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-state
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-state.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-state.instructions.md
   deployed_file_hashes:
@@ -3918,13 +3878,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-watch-mode
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/instructions/squad/squad-watch-mode.instructions.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-watch-mode.instructions.md
   deployed_file_hashes:
@@ -3934,13 +3893,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-document
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/prompts/squad/squad-document.prompt.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-document.agent.md
   - .github/prompts/squad-document.prompt.md
@@ -3952,13 +3910,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-federation
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/prompts/squad/squad-federation.prompt.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/instructions/squad-federation.instructions.md
   - .github/prompts/squad-federation.prompt.md
@@ -3970,13 +3927,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-governance-report
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/prompts/squad/squad-governance-report.prompt.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-governance-report.agent.md
   - .github/prompts/squad-governance-report.prompt.md
@@ -3988,13 +3944,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad-learn
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/prompts/squad/squad-learn.prompt.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/agents/squad-learn.agent.md
   - .github/prompts/squad-learn.prompt.md
@@ -4006,13 +3961,12 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: hve-squad-squad
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: 1.0.0
   virtual_path: squad-src/.github/prompts/squad/squad.prompt.md
   is_virtual: true
   depth: 2
   resolved_by: Peter-N91/hve-squad
-  package_type: apm_package
   deployed_files:
   - .github/prompts/squad.prompt.md
   deployed_file_hashes:
@@ -4022,7 +3976,7 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: azure-scaffold
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: unknown
   virtual_path: squad-src/.github/skills/azure-scaffold
   is_virtual: true
@@ -4036,7 +3990,7 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: python-diagrams
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: unknown
   virtual_path: squad-src/.github/skills/python-diagrams
   is_virtual: true
@@ -4050,7 +4004,7 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: sql-migration-advisor
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: unknown
   virtual_path: squad-src/.github/skills/sql-migration-advisor
   is_virtual: true
@@ -4064,7 +4018,7 @@ dependencies:
   materialization_repo_url: Peter-N91/hve-squad
   name: squad
   host: github.com
-  resolved_commit: 1386e039933e7a88ced6d8ce2c098f48633d5354
+  resolved_commit: 9f39af1cd74e37f6b5daa37a9e92b2c011281a78
   version: unknown
   virtual_path: squad-src/.github/skills/squad
   is_virtual: true
@@ -4073,10 +4027,10 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .agents/skills/squad
-  content_hash: sha256:4e32cf4547f86a10c4fb246a5f717a7ed8a4c977fb2f243a918be50a33ece794
+  content_hash: sha256:2281292bf80b4c0528e707abb1261011e8fe96d033256d8732cf279a351c29a9
 deployments:
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/accessibility
   runtime: null
   scope: project
@@ -4085,7 +4039,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/accessibility/accessibility
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/accessibility-coverage-matrix
   runtime: null
   scope: project
@@ -4094,7 +4048,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/accessibility/accessibility-coverage-matrix
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/adr-author
   runtime: null
   scope: project
@@ -4103,7 +4057,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/adr-author
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/analysis-authoring
   runtime: null
   scope: project
@@ -4112,7 +4066,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/analysis-authoring
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/architecture-diagrams
   runtime: null
   scope: project
@@ -4121,7 +4075,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/architecture-diagrams
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/architecture-review
   runtime: null
   scope: project
@@ -4130,7 +4084,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/architecture-review
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/azure-pricing
   runtime: null
   scope: project
@@ -4139,7 +4093,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/azure-pricing
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/azure-scaffold
   runtime: null
   scope: project
@@ -4148,7 +4102,7 @@ deployments:
   active_owner: peter-n91/hve-squad/squad-src/.github/skills/azure-scaffold
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/backlog-execute
   runtime: null
   scope: project
@@ -4157,7 +4111,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/backlog-execute
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/backlog-management
   runtime: null
   scope: project
@@ -4166,7 +4120,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/backlog-management
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/backlog-plan
   runtime: null
   scope: project
@@ -4175,7 +4129,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/backlog-plan
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/backlog-templates
   runtime: null
   scope: project
@@ -4184,7 +4138,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/shared/backlog-templates
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/c4-architecture
   runtime: null
   scope: project
@@ -4193,7 +4147,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/c4-architecture
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/caveman
   runtime: null
   scope: project
@@ -4202,7 +4156,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/caveman
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/code-review
   runtime: null
   scope: project
@@ -4211,7 +4165,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/coding-standards/code-review
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/copilot-otel-metrics
   runtime: null
   scope: project
@@ -4220,7 +4174,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/copilot-otel-metrics
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/cspell-config
   runtime: null
   scope: project
@@ -4229,7 +4183,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/cspell-config
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/customer-card-render
   runtime: null
   scope: project
@@ -4238,7 +4192,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/customer-card-render
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/data-catalog
   runtime: null
   scope: project
@@ -4247,7 +4201,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/data-catalog
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/data-science-engineering-foundation
   runtime: null
   scope: project
@@ -4256,7 +4210,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/data-science-engineering-foundation
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dataops
   runtime: null
   scope: project
@@ -4265,7 +4219,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/dataops
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/demo-setup
   runtime: null
   scope: project
@@ -4274,7 +4228,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/demo-setup
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/demo-video
   runtime: null
   scope: project
@@ -4283,7 +4237,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/demo-video
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/documentation
   runtime: null
   scope: project
@@ -4292,7 +4246,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/documentation
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dt-coaching-foundation
   runtime: null
   scope: project
@@ -4301,7 +4255,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/dt-coaching-foundation
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dt-curriculum
   runtime: null
   scope: project
@@ -4310,7 +4264,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/dt-curriculum
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dt-figma-export
   runtime: null
   scope: project
@@ -4319,7 +4273,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/dt-figma-export
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dt-methods
   runtime: null
   scope: project
@@ -4328,7 +4282,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/dt-methods
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/dt-rpi-integration
   runtime: null
   scope: project
@@ -4337,7 +4291,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/dt-rpi-integration
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/engagement-report-council-critique
   runtime: null
   scope: project
@@ -4346,7 +4300,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/engagement-reporting/engagement-report-council-critique
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/engagement-reporting
   runtime: null
   scope: project
@@ -4355,7 +4309,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/engagement-reporting/engagement-reporting
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/evaluation-design
   runtime: null
   scope: project
@@ -4364,7 +4318,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/evaluation-design
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/experiment-design
   runtime: null
   scope: project
@@ -4373,7 +4327,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/experiment-design
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/feasibility
   runtime: null
   scope: project
@@ -4382,7 +4336,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/feasibility
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/functional-planner
   runtime: null
   scope: project
@@ -4391,7 +4345,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/functional-planner
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/gdpr-compliant
   runtime: null
   scope: project
@@ -4400,7 +4354,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/gdpr-compliant
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/gh-code-scanning
   runtime: null
   scope: project
@@ -4409,7 +4363,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/gh-code-scanning
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/git-commit
   runtime: null
   scope: project
@@ -4418,7 +4372,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/git-commit
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/git-merge
   runtime: null
   scope: project
@@ -4427,7 +4381,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/git-merge
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/git-setup
   runtime: null
   scope: project
@@ -4436,7 +4390,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/git-setup
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/gitlab
   runtime: null
   scope: project
@@ -4445,7 +4399,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/gitlab
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/hve-artifact-authoring
   runtime: null
   scope: project
@@ -4454,7 +4408,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/coding-standards/hve-artifact-authoring
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/hve-builder
   runtime: null
   scope: project
@@ -4463,7 +4417,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/hve-builder
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/hve-core-installer
   runtime: null
   scope: project
@@ -4472,7 +4426,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/installer/hve-core-installer
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/hve-demo-material
   runtime: null
   scope: project
@@ -4481,7 +4435,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/hve-demo-material
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/hve-slides
   runtime: null
   scope: project
@@ -4490,7 +4444,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-slides
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/incident-response
   runtime: null
   scope: project
@@ -4499,7 +4453,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/incident-response
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/jira
   runtime: null
   scope: project
@@ -4508,7 +4462,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/jira
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/markdown-to-html
   runtime: null
   scope: project
@@ -4517,7 +4471,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/markdown-to-html
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/mcsb
   runtime: null
   scope: project
@@ -4526,7 +4480,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/mcsb
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/md-to-docx
   runtime: null
   scope: project
@@ -4535,7 +4489,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/md-to-docx
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/microsoft-agent-framework
   runtime: null
   scope: project
@@ -4544,7 +4498,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/microsoft-agent-framework
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/ml-experimentation
   runtime: null
   scope: project
@@ -4553,7 +4507,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/ml-experimentation
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/mural
   runtime: null
   scope: project
@@ -4562,7 +4516,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/mural
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/outcome-hypothesis
   runtime: null
   scope: project
@@ -4571,7 +4525,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/outcome-hypothesis
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-agentic
   runtime: null
   scope: project
@@ -4580,7 +4534,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-agentic
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-cicd
   runtime: null
   scope: project
@@ -4589,7 +4543,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-cicd
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-docker
   runtime: null
   scope: project
@@ -4598,7 +4552,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-docker
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-infrastructure
   runtime: null
   scope: project
@@ -4607,7 +4561,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-infrastructure
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-llm
   runtime: null
   scope: project
@@ -4616,7 +4570,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-llm
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-mcp
   runtime: null
   scope: project
@@ -4625,7 +4579,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-mcp
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/owasp-top-10
   runtime: null
   scope: project
@@ -4634,7 +4588,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/owasp-top-10
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/performance-slo-planner
   runtime: null
   scope: project
@@ -4643,7 +4597,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/performance-slo-planner
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/powerpoint
   runtime: null
   scope: project
@@ -4652,7 +4606,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/powerpoint
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/pr-reference
   runtime: null
   scope: project
@@ -4661,7 +4615,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/shared/pr-reference
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/privacy-standards
   runtime: null
   scope: project
@@ -4670,7 +4624,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/privacy-standards
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/proposal-response
   runtime: null
   scope: project
@@ -4679,7 +4633,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/proposal-response
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/pull-request
   runtime: null
   scope: project
@@ -4688,7 +4642,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/pull-request
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/python-diagrams
   runtime: null
   scope: project
@@ -4697,7 +4651,7 @@ deployments:
   active_owner: peter-n91/hve-squad/squad-src/.github/skills/python-diagrams
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/python-foundational
   runtime: null
   scope: project
@@ -4706,7 +4660,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/coding-standards/python-foundational
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rai-planner
   runtime: null
   scope: project
@@ -4715,7 +4669,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/rai-planner
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rai-standards
   runtime: null
   scope: project
@@ -4724,7 +4678,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rai/rai-standards
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/requirements-author
   runtime: null
   scope: project
@@ -4733,7 +4687,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/requirements-author
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/risk-register
   runtime: null
   scope: project
@@ -4742,7 +4696,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/risk-register
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-challenger
   runtime: null
   scope: project
@@ -4751,7 +4705,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-challenger
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-implement
   runtime: null
   scope: project
@@ -4760,7 +4714,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-implement
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-plan
   runtime: null
   scope: project
@@ -4769,7 +4723,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-plan
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-plan-critique
   runtime: null
   scope: project
@@ -4778,7 +4732,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-plan-critique
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-research
   runtime: null
   scope: project
@@ -4787,7 +4741,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-research
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-review
   runtime: null
   scope: project
@@ -4796,7 +4750,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-review
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/rpi-walkthrough
   runtime: null
   scope: project
@@ -4805,7 +4759,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/rpi/rpi-walkthrough
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/secure-by-design
   runtime: null
   scope: project
@@ -4814,7 +4768,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/secure-by-design
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/security-planning
   runtime: null
   scope: project
@@ -4823,7 +4777,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/project-planning/security-planning
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/security-reviewer-formats
   runtime: null
   scope: project
@@ -4832,7 +4786,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/security-reviewer-formats
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/semantic-kernel
   runtime: null
   scope: project
@@ -4841,7 +4795,7 @@ deployments:
   active_owner: github/awesome-copilot/skills/semantic-kernel
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/sql-migration-advisor
   runtime: null
   scope: project
@@ -4850,7 +4804,7 @@ deployments:
   active_owner: peter-n91/hve-squad/squad-src/.github/skills/sql-migration-advisor
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/squad
   runtime: null
   scope: project
@@ -4859,7 +4813,7 @@ deployments:
   active_owner: peter-n91/hve-squad/squad-src/.github/skills/squad
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/supply-chain-security
   runtime: null
   scope: project
@@ -4868,7 +4822,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/supply-chain-security
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/synth-data-generate
   runtime: null
   scope: project
@@ -4877,7 +4831,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/data-science-engineering/synth-data-generate
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/telemetry-foundations
   runtime: null
   scope: project
@@ -4886,7 +4840,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/shared/telemetry-foundations
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/tts-voiceover
   runtime: null
   scope: project
@@ -4895,7 +4849,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/tts-voiceover
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/ux-artifacts
   runtime: null
   scope: project
@@ -4904,7 +4858,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/ux-artifacts
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/ux-coaching
   runtime: null
   scope: project
@@ -4913,7 +4867,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/design-thinking/ux-coaching
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/vally-tests
   runtime: null
   scope: project
@@ -4922,7 +4876,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/hve-core/vally-tests
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/vex
   runtime: null
   scope: project
@@ -4931,7 +4885,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/security/vex
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/video-to-gif
   runtime: null
   scope: project
@@ -4940,7 +4894,7 @@ deployments:
   active_owner: microsoft/hve-core/.github/skills/experimental/video-to-gif
   content_hash: null
 - kind: project-relative
-  target: copilot
+  target: agents
   value: .agents/skills/vscode-playwright
   runtime: null
   scope: project
@@ -5505,7 +5459,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-backlog-executor.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-backlog-executor.agent.md
-  content_hash: sha256:6d088a780eaf317a1c96eba6907e07c73765b258dc980763c5f72395eecb76bc
+  content_hash: sha256:5c05cc8ab323e95cccc7d9f94aa6e14248e3ff39310591bf0f5e2df1d946ac51
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-challenger.agent.md
@@ -5514,7 +5468,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-challenger.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-challenger.agent.md
-  content_hash: sha256:f46d2591f48a215f60d35ba64d01f89e8b06c3adacf0c66d4ec4dc8fb12814ed
+  content_hash: sha256:a0a1fe15710770288d3afa7b4dabdfc1adff5647e3778a1f6f38e69536eab0f8
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-coordinator.agent.md
@@ -5523,7 +5477,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-coordinator.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-coordinator.agent.md
-  content_hash: sha256:9635c56846f562ec2227e2ae643ff92c47cbbb04a20adc1f4f3a8c6eafac51e2
+  content_hash: sha256:f92477b01af0b8556af24fa2a0a171d9d674d92fdba765ca8b09d830cf8a050b
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-cost-manager.agent.md
@@ -5532,7 +5486,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-cost-manager.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-cost-manager.agent.md
-  content_hash: sha256:b9c570345937607c38b12e2e3be0ae8d0d2060317019a3c873cd99d70c50ef5e
+  content_hash: sha256:8da9f07eb9bed6f81e4af6ed33445f3b109d6de0a5e03a1002446f83b1ca7556
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-data-scientist.agent.md
@@ -5541,7 +5495,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-data-scientist.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-data-scientist.agent.md
-  content_hash: sha256:0dc8a940fbfeb105676921679b7080347fe49bff43492cd68e8352779742ba27
+  content_hash: sha256:83ac5625e7243c48b4d68bdd916350ef06ff4d2cb16c5162316ed88de79e5e70
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-deployer.agent.md
@@ -5595,7 +5549,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-implementor.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-implementor.agent.md
-  content_hash: sha256:55abcb6319a5821bbe9f9e9b8f4de2f94df65e268de05f43ac2907aa23b602ff
+  content_hash: sha256:5612ebe6cff83f9f2eaeb0918f05d68ec5b766ec474c464230b2748173fa3e1f
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-lead.agent.md
@@ -5604,7 +5558,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-lead.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-lead.agent.md
-  content_hash: sha256:62c27ad4ac901b8e8763f346085d05a3cbc166da020f3729d4c1a7e5b3b416e9
+  content_hash: sha256:cb73fd74cffe848152edfc0e81b785ebde566b9a7091a856f4143df026216b4c
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-learn.agent.md
@@ -5631,7 +5585,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-observability-planner.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-observability-planner.agent.md
-  content_hash: sha256:0b09322f1b98adee14369e7df1b47a6fed7d3b2b94b905dc0fbad5c5bf7247fe
+  content_hash: sha256:9be5ee055e6cf3238bf343ac230f9ab81f254812cb72022fa7c53f95b0c85a56
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-performance-planner.agent.md
@@ -5640,7 +5594,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-performance-planner.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-performance-planner.agent.md
-  content_hash: sha256:16d00a79d872454695eca7c8018742a58d7a54dd19b44ec99d82bb9a488cb3c5
+  content_hash: sha256:0d63d00683788ab36d1cf27614c64e0c6dfd09858df0a3f3fedebd6665f1378c
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-prompt-engineer.agent.md
@@ -5649,7 +5603,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-prompt-engineer.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-prompt-engineer.agent.md
-  content_hash: sha256:008953f88f9ba34beb995a170cb2c1d52eb86c3bf86393607c5cc1acf4c1dd95
+  content_hash: sha256:f88eee04dca99969101584d837fa7e0c460accbc57b7b9e6ba69fc98998b187c
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-researcher.agent.md
@@ -5658,7 +5612,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-researcher.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-researcher.agent.md
-  content_hash: sha256:5a02d448805fb13ed8be85026383f8b0e70fd70621a47a89bcef1cbb0f6eba70
+  content_hash: sha256:460b879c681a4d91299dafe94eb4410974b2d76819f993d19fca86de8ce45da2
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-reviewer.agent.md
@@ -5667,7 +5621,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-reviewer.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-reviewer.agent.md
-  content_hash: sha256:deda45bf92ff925e5ea6e6463574739991667ed7ea3e5917be9cd2c90ce738ef
+  content_hash: sha256:3cb88402a459be9a469c78045e718ff492aa29fed4c75ff30198ce0d127927c1
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-risk-manager.agent.md
@@ -5676,7 +5630,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-risk-manager.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-risk-manager.agent.md
-  content_hash: sha256:41bfb2d5e297ae4e37d9657523851e37a896431cfac5caa0c85fad7c963c2cfc
+  content_hash: sha256:8e178b203cead111a43717cea7873ed392dba93883c4eff27c119678a9f398e6
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-scribe.agent.md
@@ -5685,7 +5639,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-scribe.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-scribe.agent.md
-  content_hash: sha256:b6a1206cbf47e853459bab276c17447da87e44339825f266ee9439cb147fdf45
+  content_hash: sha256:f16bfdb80e27ef16b4b2779f82df13591fc78b1db3f132fd3161fc44c42fe9f9
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-sql-migration-advisor.agent.md
@@ -5703,7 +5657,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-technical-writer.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-technical-writer.agent.md
-  content_hash: sha256:2d067b28eaf8af5a21411eecd86ff2ce9d7b2bdd2bb27455bb13fa2827abab77
+  content_hash: sha256:ed84c69cc517d05ef706b5ed55bfd8f2ced921e6d1c1c6f2012dc572298de939
 - kind: project-relative
   target: copilot
   value: .github/agents/squad-vulnerability-manager.agent.md
@@ -5712,7 +5666,7 @@ deployments:
   owners:
   - peter-n91/hve-squad/squad-src/.github/agents/squad/squad-vulnerability-manager.agent.md
   active_owner: peter-n91/hve-squad/squad-src/.github/agents/squad/squad-vulnerability-manager.agent.md
-  content_hash: sha256:fea135afa09e41a394ea5435cae3c79b650b37b88fcaabbe9a30c0bcf3da9441
+  content_hash: sha256:be2fe73e855821da26a5c62e6cdf7741b95ae55511cf60e6e6b88523f2733b60
 - kind: project-relative
   target: copilot
   value: .github/agents/sssc-planner.agent.md
