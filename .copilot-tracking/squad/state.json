@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.4",
+  "updated": "2026-10-17T12:00:00Z",
+  "turn": 1,
+  "mode": "interactive",
+  "activeRoles": [
+    "scribe"
+  ],
+  "openEscalations": [],
+  "currentRun": {
+    "sessionModel": "Gemini 4 Argon",
+    "modelOverrides": {},
+    "estCostUsd": 0.0725,
+    "estCreditsTotal": 7.25,
+    "costPreflight": {
+      "runId": "init-2026-10-17-001",
+      "roundId": "",
+      "ceilingUsd": null,
+      "evaluatedSpendUsd": 0,
+      "remainingUsd": null,
+      "plannedDispatches": 0,
+      "projectedCostUsd": 0,
+      "reserveMultiplier": 3.0,
+      "admissionCostUsd": 0,
+      "confidence": "not-applicable",
+      "basis": "not-requested",
+      "decision": "not-requested",
+      "reason": "No cost ceiling configured."
+    }
+  },
+  "notify": {
+    "approvalChannel": "in-chat",
+    "enabled": false,
+    "email": "",
+    "github": {
+      "handle": "",
+      "repo": ""
+    }
+  }
+}
