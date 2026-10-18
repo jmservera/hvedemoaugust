@@ -100,6 +100,22 @@ To add custom product images, place JPG files in `wwwroot/images/products/` with
 5. **Checkout**: Click "Checkout" button to complete purchase
 6. **Success**: View confirmation and return to products
 
+## Inventory Behavior
+
+Each product has an available quantity from the static catalog (`ProductService`). The values are synthetic demo seed data, not warehouse data, and nothing reserves or decrements stock.
+
+- **Status**: more than 5 available shows `In-stock`, 1 to 5 shows `Only {availableQuantity} left` (the count appears only for low stock), and 0 shows `Out of stock`. Buy is disabled for out-of-stock products.
+- **Limit**: Add (cumulative) and Update (absolute) both reject a quantity above the available quantity, inclusive, with `Stock unavailable. Available quantity: {availableQuantity}. Reduce the quantity.`. A positive quantity at 0 stock, or an unknown product id, shows `Out of stock`.
+- **Zero**: an explicit quantity of `0` removes the item on Add and Update. An omitted Add quantity means 1.
+- **Invalid quantity**: a negative, nonnumeric, overflowing, or blank quantity, and a missing quantity on Update, leaves the cart unchanged and shows `Enter a valid whole-number quantity of zero or more.`
+- **Feedback**: every rejection returns to the originating page with the last valid cart, shows the message in a focused `role="alert"` region, and logs one warning with only `operation`, `productId`, `requestedQty`, and `availableQty`.
+
+## Tests
+
+```bash
+dotnet test tests/ZavaStorefront.Tests/ZavaStorefront.Tests.csproj
+```
+
 ## Session Management
 
 - Cart data is stored in session

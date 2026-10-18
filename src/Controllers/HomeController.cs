@@ -26,17 +26,19 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddToCart(int productId)
+    public IActionResult AddToCart(int productId, string? quantity)
     {
-        var product = _productService.GetProductById(productId);
-        if (product != null)
+        var input = InventoryFeedback.ParseQuantity(Request, quantity);
+        var result = _cartService.AddToCart(productId, input);
+
+        if (result.IsRejection)
         {
-            _logger.LogInformation("Adding product {ProductId} ({ProductName}) to cart", productId, product.Name);
-            _cartService.AddToCart(productId);
+            InventoryFeedback.ReportRejection(_logger, TempData, CartOperation.Add, productId, result);
         }
-        else
+        else if (result.Outcome == CartOperationOutcome.Succeeded)
         {
-            _logger.LogWarning("Attempted to add non-existent product {ProductId} to cart", productId);
+            var product = _productService.GetProductById(productId);
+            _logger.LogInformation("Adding product {ProductId} ({ProductName}) to cart", productId, product?.Name);
         }
 
         return RedirectToAction("Index");

@@ -1,0 +1,5 @@
+@model string
+@* Single server-rendered message region for inventory rejections. Focus moves here on load so the
+   text is announced and keyboard users resume from this point. *@
+<div id="inventory-message" class="alert alert-danger inventory-message" role="alert" tabindex="-1">@Model</div>
+<script>document.getElementById('inventory-message').focus();</script>

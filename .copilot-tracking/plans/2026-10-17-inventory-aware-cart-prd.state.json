@@ -1,0 +1,236 @@
+{
+  "prdFile": ".copilot-tracking/plans/2026-10-17-inventory-aware-cart-prd.md",
+  "lastAccessed": "2026-10-18T11:31:15.127Z",
+  "currentPhase": "Validate",
+  "disclaimerShownAt": "2026-10-18T00:28:11.3479425+02:00",
+  "phaseSkillsLoaded": [
+    "prd-author#assess",
+    "prd-author#create",
+    "prd-author#build",
+    "prd-author#integrate",
+    "prd-author#validate"
+  ],
+  "questionsAsked": [
+    "UQ-001", "UQ-002", "UQ-003", "UQ-004", "UQ-005", "UQ-006",
+    "UQ-007", "UQ-008", "UQ-009", "UQ-010", "UQ-011", "UQ-012",
+    "UQ-013", "UQ-014", "UQ-015", "UQ-016", "UQ-017"
+  ],
+  "answeredQuestions": {
+    "UQ-001": "Locally approved: improve completed checkout confirmations in the existing demo, not payment or commercial orders.",
+    "UQ-002": "Locally approved method: Finance has existing data and will measure. Exact dataset/report deferred, non-blocking.",
+    "UQ-003": "Accepted planning baseline: exactly 40% of carts reach demo checkout confirmation, user-reported for the last 6 months. Finance holds the data; not independently verified; exact date range deferred, non-blocking.",
+    "UQ-004": "Locally approved planning target: 60%, user-selected, not an empirically validated outcome promise.",
+    "UQ-005": "Locally approved: Finance department is accountable; no named person or independently verified attestation supplied.",
+    "UQ-006": "Locally approved: review 3 months after deployment; not deployment authorization.",
+    "UQ-007": "Locally approved: exact quantities only for low-stock products; status labels otherwise.",
+    "UQ-008": "Locally approved explicit exception: exact available counts in ALL inventory-limit rejection messages, across all stock states.",
+    "UQ-009": "Locally approved exact copy: In-stock; Only {availableQuantity} left; Out of stock for zero AND invalid product (explicit override); final rejection on both add/update: Stock unavailable. Available quantity: {availableQuantity}. Reduce the quantity.",
+    "UQ-010": "Locally approved: one shared threshold for all products.",
+    "UQ-011": "Locally approved: global threshold 5 INCLUSIVE; 0 unavailable takes precedence; 1..5 low; >5 normal.",
+    "UQ-012": "Locally approved: zero available stock cannot be bought; Add quantity 0 REMOVES an existing item; Update quantity 0 REMOVES the item. Explicit user decision, not old-code inference.",
+    "UQ-013": "Locally approved: Requesting user, self-declared authority, repo approval record, exact packet/matching PRD version 1.0; final confirmation after 17 questions. Independent refresh review pending.",
+    "UQ-014": "Locally WAIVED: no story exists; don't use it for this demo. Local-demo-only JIRA WAIVER, no create/mutate/fake issue; shared Confluence production governance unchanged.",
+    "UQ-015": "Deferred, non-blocking: truncated Product Overview v1 'without storing' gap unresolved; no ending invented.",
+    "UQ-016": "Desktop 1024 CSS px locally approved; mobile 'modern standards' undefined and deferred, non-blocking. Preserve responsiveness; engineering representative test widths are not product policy/conformance claims.",
+    "UQ-017": "Locally approved: Finance aggregate counts from existing data only; NO new app analytics, customer identifiers, or session identifiers."
+  },
+  "referencesProcessed": [
+    {
+      "file": ".copilot-tracking/research/2026-10-17/inventory-aware-cart-analysis.md",
+      "status": "analyzed",
+      "sha256": "9a7906b94f572bc6a7e7ccaa90ef6ebce20112625a75d6166586e10fd3e29bb3",
+      "keyFindings": "Historical extraction unchanged: all 157 research IDs, evidence states, and Confluence v1 provenance retained. Current local-demo decisions are separately attributed to the requesting user and repo approval, never inferred from research alone.",
+      "integratedSections": [
+        "baseline-and-proposal",
+        "candidate-requirements",
+        "source-trace-index",
+        "implementation-gates",
+        "historical-questions-and-current-answers"
+      ]
+    },
+    {
+      "file": ".copilot-tracking/squad/decisions.md#2026-10-18t083858z-local-demo-approval-inventory-aware-cart-version-10",
+      "status": "analyzed",
+      "timestamp": "2026-10-18T09:06:20.612Z",
+      "keyFindings": "Requesting user, self-declared authority, exact packet approved after all 17 questions as local-demo version 1.0; bounded Jira waiver; shared production governance unchanged. Append-only correction supplies formal UQ-001..UQ-017 and exactly 40%, not approximate.",
+      "integratedSections": ["document-control", "requirements", "acceptance-criteria", "success-metrics", "B1-B6", "current-answers", "sign-off"],
+      "conflicts": ["UQ-009 explicitly overrides historical neutral invalid-ID copy locally.", "UQ-012 defines both zero-removal paths and zero-stock prohibition; not an old-code inference."],
+      "pendingActions": ["Actual Validate review recorded with comments; matching revised full-plan critique/council gates remain pending."]
+    },
+    {
+      "file": ".copilot-tracking/squad/decisions.md#2026-10-18t084756z-correction-note-local-demo-approval-table-labels-and-uq003-baseline-wording",
+      "status": "analyzed",
+      "keyFindings": "Formal question IDs are UQ-001 through UQ-017. Baseline is exactly 40%, user-reported/unverified over the last 6 months; exact dates unknown.",
+      "integratedSections": ["document-control", "success-metrics", "current-answers", "B1-B6"]
+    },
+    {
+      "file": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t084756z-inventory-aware-cart",
+      "status": "analyzed",
+      "keyFindings": "Ready-With-Gaps, zero blocking gaps for PRD refresh/research/planning only; code dispatch awaits matching PRD/research/plan/council artifacts; no formal quality scores or production authority.",
+      "integratedSections": ["document-control", "sign-off"]
+    },
+    {
+      "file": ".copilot-tracking/plans/2026-10-17-inventory-aware-cart-plan.md",
+      "status": "analyzed",
+      "keyFindings": "Existing finalized P01-P03 documentation methodology only, not code authorization; no concurrent new code plan read.",
+      "integratedSections": ["executive-summary", "sign-off"]
+    },
+    {
+      "file": ".copilot-tracking/research/2026-10-18/inventory-aware-cart-code-research.md",
+      "status": "analyzed",
+      "sha256": "3dda2d7d908ed542ae5615127f533cb7d439fc35a790dbfb4dda518dcd3fb876",
+      "keyFindings": "Bounded descriptive evidence: ten actual products and remote ImageUrl values versus historical Confluence v1 eight/static paths; preserve actual products/prices/images under approved user intent. Code research is not product authority; engineering suggestions not adopted as new requirements.",
+      "integratedSections": ["product-context", "constraints", "dependencies"]
+    },
+    {
+      "file": ".copilot-tracking/squad/decisions.md#2026-10-18t105056z-localdemoamendmenta1-inventory-aware-cart-invalid-quantity-behavior",
+      "status": "analyzed",
+      "timestamp": "2026-10-18T10:55:51.602Z",
+      "approvalTimestamp": "2026-10-18T10:50:56Z",
+      "keyFindings": "Separate explicit requesting-user A1 approval amends local-demo v1.0 without changing original UQ answers or Confluence v1 provenance. Explicit 0 removes on Add/Update; omitted Add defaults to 1; negative/nonnumeric/overflowing quantities and missing Update preserve cart, announce exact approved message, and log only safe numeric/nullable structured context. Negative Update removal intentionally replaced; no-log/no-op and silent malformed advice not adopted.",
+      "integratedSections": ["document-control", "approved-local-demo-amendment-a1", "functional-requirements", "non-functional-requirements", "acceptance-criteria", "current-a1-and-preserved-edge-case-traces", "traceability-matrix", "validate-intake-contract"],
+      "conflicts": ["Earlier current negative/numeric-input policy omissions and negative-Update removal are superseded by the separately approved A1; historical source questions and original approval choices remain unchanged."],
+      "pendingActions": ["Actual amended PRD and sole same-root companion assessed in the persisted paired Validate payloads; carry forward REC-001 through REC-005. Matching revised full-plan critique/council gates remain pending before code execution."]
+    },
+    {
+      "file": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t111556z-inventory-aware-cart",
+      "status": "analyzed",
+      "assessmentTimestamp": "2026-10-18T11:07:56.430Z",
+      "persistedAt": "2026-10-18T11:15:56Z",
+      "timestampQualification": "Assessment timestamp supplied by caller; entry write timestamp separately recorded. No independent freshness or programmatic schema validation claimed.",
+      "keyFindings": "Existing actual Validate review of PRD v1.0 plus A1 and sole same-root companion: paired PRD_STANDARD_FINDINGS_V1 and PRD_QUALITY_REPORT_V1; NEEDS_REVIEW; 40 findings, 29 COVERED, 11 CAUTION, 0 RISK; 4 MEDIUM and 7 LOW cautions; Validate APPROVED_WITH_COMMENTS; Finalize NOT_EVALUATED; Ready-With-Gaps, 0 blocking intake gaps. User approval unchanged; no code or production approval.",
+      "integratedSections": ["document-control", "current-review-lifecycle", "validate-intake-contract", "document-metadata"],
+      "pendingActions": ["REC-001 and REC-004 assigned to code plan; REC-002 before Finalize; REC-003 deferred to formal Finalize, not a code gate; REC-005 retained scoped NFR limitations. Revised full-plan critique/council gates remain pending."]
+    }
+  ],
+  "nextActions": [
+    "Existing actual Validate assessment recorded by reference: NEEDS_REVIEW; Validate APPROVED_WITH_COMMENTS; Finalize NOT_EVALUATED. Carry REC-001 canonical availability and REC-004 CAC case crosswalk into the code plan; REC-002 supporting SMART formulation before Finalize; REC-003 CCON classification deferred to formal Finalize, not a code gate; REC-005 retain five absent NFR categories as scoped demo limitations. Do not invent targets or NFRs.",
+    "Resume only the separately gated RPI loop: matching amended PRD v1.0, research, plan, RPI critique, and council artifacts must clear inventory-cart-v1-artifact-validation-pending before code dispatch or execution.",
+    "Retain the four non-blocking question deferrals (UQ-002, UQ-003, UQ-015, UQ-016) and bounded local Jira waiver (UQ-014); do not re-interview.",
+    "Bounded metadata-only update ends after the two existing files are updated and preservation checks reported; do not rerun domain review, advance Finalize, implement, publish, deploy, mutate Jira/Confluence, alter the Git index, edit other plan/research/critique/squad state, or create another companion."
+  ],
+  "qualityChecks": [
+    "local-demo-user-approval-recorded-not-production-authority",
+    "actual-validate-NEEDS_REVIEW-APPROVED_WITH_COMMENTS-finalize-NOT_EVALUATED",
+    "internal-structural-validation-results-returned-in-closeout",
+    "approved-local-demo-A1-applied-separately-from-original-UQ-and-Confluence-authority",
+    "formal-validate-reviewed-actual-amended-artifact-not-inline-packet"
+  ],
+  "userPreferences": {
+    "detail-level": "concise-main-document-complete-trace-appendices",
+    "question-style": "no-interview-preserve-historical-questions-and-record-approved-answers"
+  },
+  "identifier_families": {
+    "functional_requirement": {"prefix": "CFR", "label": "User-approved local-demo functional requirement; stable historical prefix", "role": "requirement"},
+    "non_functional_requirement": {"prefix": "CNFR", "label": "User-approved local-demo non-functional requirement; stable historical prefix", "role": "quality"},
+    "constraint": {"prefix": "CCON", "label": "User-approved local-demo constraint; stable historical prefix", "role": "constraint"},
+    "acceptance_criterion": {"prefix": "CAC", "label": "User-approved local-demo acceptance criterion; unexecuted; stable historical prefix", "role": "verification"},
+    "product_goal": {"prefix": "PG", "label": "User-approved local-demo product goal", "role": "outcome"}
+  },
+  "authority": {
+    "status": "User-approved local-demo requirements v1.0, amended by approved local-demo A1, unchanged; actual Validate NEEDS_REVIEW / APPROVED_WITH_COMMENTS; Finalize NOT_EVALUATED; no phase advancement",
+    "implementation": "Not performed or authorized by this remediation; matching RPI critique/council gates pending",
+    "run": "init-2026-10-17-001",
+    "sourceBrdSupplied": false,
+    "approvalEvidenceSupplied": true,
+    "version": "1.0",
+    "role": "analyst Primary",
+    "approver": "Requesting user",
+    "approverAuthority": "self-declared; no name or organizational/PM role supplied or verified",
+    "scope": "LOCAL DEMO ONLY; shared production governance unchanged",
+    "approvalDecisionRef": ".copilot-tracking/squad/decisions.md#2026-10-18t083858z-local-demo-approval-inventory-aware-cart-version-10",
+    "approvalTimestamp": "2026-10-18T08:38:58Z",
+    "approvalText": "Approve this exact local-demo decision packet as version 1.0; record it in the repo and resume the RPI loop",
+    "correctionDecisionRef": ".copilot-tracking/squad/decisions.md#2026-10-18t084756z-correction-note-local-demo-approval-table-labels-and-uq003-baseline-wording",
+    "intakeDecisionRef": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t111556z-inventory-aware-cart",
+    "intakeVerdict": "Ready-With-Gaps",
+    "blockingRefreshResearchPlanningGaps": 0,
+    "currentQuestionDisposition": "All 17 answered/dispositioned by requesting user; UQ-002/UQ-003 retain evidence gaps, UQ-015 source gap deferred, UQ-016 mobile standard deferred, UQ-014 Jira waived locally",
+    "remainingHold": "inventory-cart-v1-artifact-validation-pending",
+    "jiraWaiver": "UQ-014 local demo only; no story exists; no Jira mutation/fake issue; production governance unchanged",
+    "previousPrdSha256": "75e004ae32343a49c9a209781a9f3f14c4fa8de749a3878db2ac6d7476cb5f70"
+  },
+  "localAmendments": [
+    {
+      "id": "A1",
+      "label": "amended by approved local-demo A1",
+      "version": "1.0",
+      "approvalDecisionRef": ".copilot-tracking/squad/decisions.md#2026-10-18t105056z-localdemoamendmenta1-inventory-aware-cart-invalid-quantity-behavior",
+      "approvalTimestamp": "2026-10-18T10:50:56Z",
+      "approver": "Requesting user",
+      "approverAuthority": "self-declared; no name or organizational/PM role supplied or verified",
+      "scope": "LOCAL DEMO ONLY; separate amendment, not an original UQ answer or Confluence v1 claim",
+      "invalidQuantityMessage": "Enter a valid whole-number quantity of zero or more.",
+      "quantityValidationApproval": "Approve this invalid-quantity behavior and message",
+      "explicitZero": "Removes an existing item on both Add and Update",
+      "omittedAddQuantity": 1,
+      "invalidCases": ["negative Add or Update quantity", "nonnumeric Add or Update quantity", "overflowing Add or Update quantity", "missing Update quantity"],
+      "invalidResult": "Cart UNCHANGED; exact validation message ANNOUNCED; safe structured warning logged",
+      "replaces": "Negative Update removal; earlier current text leaving negative/numeric-input policy unselected",
+      "logging": {
+        "fields": ["productId", "requestedQty", "availableQty", "operation"],
+        "allowedContextValueTypes": ["number", "null"],
+        "unparseableOverflowingOrUnavailableValues": null,
+        "operationCodeMappingSelected": false,
+        "neverLog": ["raw input strings", "session data or identifiers", "cart data or identifiers", "customer data or identifiers", "credentials", "sensitive values"]
+      },
+      "notAdopted": ["negative Add no-op, no log", "silent malformed accepted risk"],
+      "requirementIds": ["CFR-002", "CFR-003", "CFR-005", "CNFR-002", "CNFR-005", "CNFR-006"],
+      "newAcceptanceCriteria": ["CAC-025", "CAC-026", "CAC-027", "CAC-028", "CAC-029", "CAC-030"],
+      "historicalTraceCount": 157,
+      "historicalQuestionCount": 17,
+      "originalApprovalAndAnswersUnchanged": true,
+      "preAmendmentPrdSha256": "af1d470345a49547b9379d13eceb30c83e809e07886a8a1fe9ec2e96be86b1d3"
+    }
+  ],
+  "qualityReview": {
+    "phase": "Validate",
+    "status": "NEEDS_REVIEW",
+    "scope": "Full actual PRD v1.0 amended by approved local-demo A1 and this sole same-root identifier-family companion, not the earlier inline A1 packet",
+    "artifactPath": ".copilot-tracking/plans/2026-10-17-inventory-aware-cart-prd.md",
+    "companionPath": ".copilot-tracking/plans/2026-10-17-inventory-aware-cart-prd.state.json",
+    "documentId": "PRD-inventory-aware-cart",
+    "version": "1.0",
+    "amendmentId": "A1",
+    "requiredContracts": ["PRD_STANDARD_FINDINGS_V1", "PRD_QUALITY_REPORT_V1"],
+    "contractReferences": [
+      "requirements-author/references/prd/prd-quality-formats.md",
+      "requirements-author/references/prd/prd-standard-findings-v1.md",
+      "requirements-author/references/prd/prd-quality-report-v1.md"
+    ],
+    "assessmentPerformed": true,
+    "assessmentRef": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t111556z-inventory-aware-cart",
+    "assessmentTimestamp": "2026-10-18T11:07:56.430Z",
+    "persistedAt": "2026-10-18T11:15:56Z",
+    "timestampQualification": "Caller-supplied assessment time, distinct from decision-entry write time; no independent freshness claimed.",
+    "metadataUpdateIsNewAssessment": false,
+    "programmaticSchemaValidationPerformed": false,
+    "standardFindings": {
+      "schema_version": "PRD_STANDARD_FINDINGS_V1",
+      "assessment_id": "requirements-quality-PRD-inventory-aware-cart-20261018T110756Z-cycle1",
+      "ref": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t111556z-inventory-aware-cart",
+      "overall_status": "CAUTION",
+      "findings_count": 40
+    },
+    "qualityReport": {
+      "schema_version": "PRD_QUALITY_REPORT_V1",
+      "report_id": "PRD-inventory-aware-cart-quality-20261018T110756Z-cycle1",
+      "ref": ".copilot-tracking/squad/decisions.md#intake-readiness-verdict-2026-10-18t111556z-inventory-aware-cart",
+      "overall_status": "NEEDS_REVIEW",
+      "gate_decisions": {"validate_exit": "APPROVED_WITH_COMMENTS", "finalize_exit": "NOT_EVALUATED"}
+    },
+    "summary_counts": {"RISK": 0, "CAUTION": 11, "COVERED": 29, "NOT_APPLICABLE": 0},
+    "severity_breakdown": {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 4, "LOW": 7},
+    "intakeVerdict": "Ready-With-Gaps",
+    "blockingIntakeGaps": 0,
+    "reviewComments": [
+      {"id": "REC-001", "owner": "code plan", "status": "assigned-not-closed", "action": "Pin canonical current-catalog availability and a stale-session/catalog verification case; no PRD rewrite."},
+      {"id": "REC-002", "owner": "PRD formal Finalize preparation", "status": "due-before-Finalize", "action": "Complete supporting SMART formulation for PG-001, PG-003, PG-004 using existing obligations; no invented targets or change to PG-002."},
+      {"id": "REC-003", "owner": "PRD formal Finalize", "status": "deferred-to-formal-Finalize-not-code-gate", "action": "Classify CCON-004 without duplicating normative behavior."},
+      {"id": "REC-004", "owner": "code plan", "status": "assigned-not-closed", "action": "Derive independently reportable path/input/outcome CAC case crosswalk; preserve CAC identifiers and PRD body."},
+      {"id": "REC-005", "owner": "PRD scope maintenance", "status": "retained-scoped-limitations", "action": "Retain absent performance/capacity, reliability/resilience, scalability/elasticity, compatibility/interoperability, and portability categories; no speculative NFRs."}
+    ],
+    "gateDecisionAuthority": "Only the existing paired PRD_QUALITY_REPORT_V1 owns gate_decisions.validate_exit and gate_decisions.finalize_exit. This metadata update references its decisions; it is not a fresh assessment, a clean PASS, Finalize advancement, or production approval.",
+    "codeExecution": "Pending matching revised full-plan critique/council gates and inventory-cart-v1-artifact-validation-pending; REC-001/REC-004 assigned to code plan; REC-002/REC-003 are Finalize work, not code gates; not blocked on reopened business questions or Jira"
+  }
+}

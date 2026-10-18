@@ -1,9 +1,17 @@
 ﻿@model List<ZavaStorefront.Models.Product>
+@using ZavaStorefront.Services
 @{
     ViewData["Title"] = "Products";
+    var inventoryMessage = TempData["InventoryMessage"] as string;
+    var inventoryProductId = TempData["InventoryProductId"] as int?;
 }
 
 <div class="container mt-4">
+    @if (!string.IsNullOrEmpty(inventoryMessage))
+    {
+        <partial name="_InventoryMessage" model="inventoryMessage" />
+    }
+
     <h1 class="mb-4">Our Products</h1>
 
     <div class="row">
@@ -17,9 +25,17 @@
                         <p class="card-text flex-grow-1">@product.Description</p>
                         <div class="mt-auto">
                             <p class="card-text"><strong>$@product.Price.ToString("F2")</strong></p>
+                            @{
+                                var statusId = $"stock-status-{product.Id}";
+                                var describedBy = !string.IsNullOrEmpty(inventoryMessage) && inventoryProductId == product.Id
+                                    ? $"{statusId} inventory-message"
+                                    : statusId;
+                                var status = InventoryRules.GetStatus(product.AvailableQuantity);
+                            }
+                            <p id="@statusId" class="card-text stock-status stock-@status.ToString().ToLowerInvariant()">@InventoryRules.GetStatusText(product.AvailableQuantity)</p>
                             <form asp-controller="Home" asp-action="AddToCart" method="post">
                                 <input type="hidden" name="productId" value="@product.Id" />
-                                <button type="submit" class="btn btn-primary w-100">Buy</button>
+                                <button type="submit" class="btn btn-primary w-100" aria-describedby="@describedBy" disabled="@(status == StockStatus.OutOfStock)">Buy</button>
                             </form>
                         </div>
                     </div>

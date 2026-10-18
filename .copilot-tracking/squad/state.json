@@ -1,17 +1,17 @@
 {
   "schemaVersion": "1.4",
-  "updated": "2026-10-17T12:00:00Z",
-  "turn": 1,
-  "mode": "interactive",
+  "updated": "2026-10-18T16:08:07Z",
+  "turn": 42,
+  "mode": "autopilot",
   "activeRoles": [
     "scribe"
   ],
   "openEscalations": [],
   "currentRun": {
-    "sessionModel": "Gemini 4 Argon",
+    "sessionModel": "unknown",
     "modelOverrides": {},
-    "estCostUsd": 0.0725,
-    "estCreditsTotal": 7.25,
+    "estCostUsd": 205.2908,
+    "estCreditsTotal": 20529.08,
     "costPreflight": {
       "runId": "init-2026-10-17-001",
       "roundId": "",

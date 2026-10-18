@@ -1,6 +1,10 @@
 @model List<ZavaStorefront.Models.CartItem>
+@using ZavaStorefront.Services
 @{
     ViewData["Title"] = "Shopping Cart";
+    var inventoryMessage = TempData["InventoryMessage"] as string;
+    var inventoryProductId = TempData["InventoryProductId"] as int?;
+    var availability = (Dictionary<int, int>)ViewBag.Availability;
 }
 
 <div class="container mt-4">
@@ -8,6 +12,10 @@
 
     @if (!Model.Any())
     {
+        if (!string.IsNullOrEmpty(inventoryMessage))
+        {
+            <partial name="_InventoryMessage" model="inventoryMessage" />
+        }
         <div class="alert alert-info">
             <h4>Your cart is empty</h4>
             <p>Start shopping to add items to your cart.</p>
@@ -43,10 +51,23 @@
                                 </td>
                                 <td>$@item.Product.Price.ToString("F2")</td>
                                 <td>
-                                    <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-inline">
+                                    @{
+                                        var availableNow = availability.TryGetValue(item.Product.Id, out var stock) ? stock : 0;
+                                        var statusId = $"stock-status-cart-{item.Product.Id}";
+                                        var inputId = $"quantity-{item.Product.Id}";
+                                        var describedBy = !string.IsNullOrEmpty(inventoryMessage) && inventoryProductId == item.Product.Id
+                                            ? $"{statusId} inventory-message"
+                                            : statusId;
+                                    }
+                                    <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-inline" novalidate>
                                         <input type="hidden" name="productId" value="@item.Product.Id" />
-                                        <input type="number" name="quantity" value="@item.Quantity" min="1" max="99" class="form-control form-control-sm" style="width: 70px;" onchange="this.form.submit()" />
+                                        <label for="@inputId" class="visually-hidden">Quantity for @item.Product.Name</label>
+                                        <div class="d-flex flex-wrap align-items-center gap-1">
+                                            <input id="@inputId" type="number" name="quantity" value="@item.Quantity" inputmode="numeric" class="form-control form-control-sm" style="width: 70px;" aria-describedby="@describedBy" />
+                                            <button type="submit" class="btn btn-sm btn-outline-primary" aria-label="Update quantity for @item.Product.Name">Update</button>
+                                        </div>
                                     </form>
+                                    <small id="@statusId" class="d-block stock-status stock-@InventoryRules.GetStatus(availableNow).ToString().ToLowerInvariant()">@InventoryRules.GetStatusText(availableNow)</small>
                                 </td>
                                 <td>$@((item.Product.Price * item.Quantity).ToString("F2"))</td>
                                 <td>
@@ -65,6 +86,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Order Summary</h5>
+                        @if (!string.IsNullOrEmpty(inventoryMessage))
+                        {
+                            <partial name="_InventoryMessage" model="inventoryMessage" />
+                        }
                         <hr>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Items:</span>

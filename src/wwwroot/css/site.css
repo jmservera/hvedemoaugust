@@ -45,3 +45,25 @@ body {
 .navbar-nav .nav-link {
   padding-right: 1rem;
 }
+
+/* Inventory status: the text is the primary cue; color is only a secondary reinforcement. */
+.stock-status {
+  font-weight: 600;
+}
+
+.stock-instock {
+  color: #146c43;
+}
+
+.stock-lowstock {
+  color: #8a5300;
+}
+
+.stock-outofstock {
+  color: #b02a37;
+}
+
+.inventory-message:focus {
+  outline: 3px solid #0b5ed7;
+  outline-offset: 2px;
+}

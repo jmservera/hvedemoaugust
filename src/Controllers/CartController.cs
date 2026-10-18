@@ -19,14 +19,25 @@ namespace ZavaStorefront.Controllers
             _logger.LogInformation("Loading cart page with {ItemCount} items", _cartService.GetCartItemCount());
             var cart = _cartService.GetCart();
             ViewBag.CartTotal = _cartService.GetCartTotal();
+
+            // Stock is read from the current catalog, never from the session snapshot of each line.
+            var availability = new Dictionary<int, int>();
+            foreach (var item in cart)
+            {
+                availability[item.Product.Id] = _cartService.GetAvailableQuantity(item.Product.Id) ?? 0;
+            }
+
+            ViewBag.Availability = availability;
             return View(cart);
         }
 
         [HttpPost]
-        public IActionResult UpdateQuantity(int productId, int quantity)
+        public IActionResult UpdateQuantity(int productId, string? quantity)
         {
-            _logger.LogInformation("Updating product {ProductId} quantity to {Quantity}", productId, quantity);
-            _cartService.UpdateQuantity(productId, quantity);
+            _logger.LogInformation("Updating quantity for product {ProductId}", productId);
+            var input = InventoryFeedback.ParseQuantity(Request, quantity);
+            var result = _cartService.UpdateQuantity(productId, input);
+            InventoryFeedback.ReportRejection(_logger, TempData, CartOperation.Update, productId, result);
             return RedirectToAction("Index");
         }
 
