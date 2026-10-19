@@ -1,6 +1,8 @@
 @model List<ZavaStorefront.Models.CartItem>
 @{
     ViewData["Title"] = "Shopping Cart";
+    var feedbackProductId = TempData.Peek("CartProductId") as int?;
+    var rejected = TempData.Peek("CartRejected") as bool? == true;
 }
 
 <div class="container mt-4">
@@ -8,6 +10,7 @@
 
     @if (!Model.Any())
     {
+        <partial name="_CartFeedback" />
         <div class="alert alert-info">
             <h4>Your cart is empty</h4>
             <p>Start shopping to add items to your cart.</p>
@@ -16,16 +19,19 @@
     }
     else
     {
+        <p id="quantity-help">Choose a total quantity, then select Update. Use 0 to remove an item.</p>
         <div class="row">
             <div class="col-md-8">
+                <div class="table-responsive">
                 <table class="table">
+                    <caption class="visually-hidden">Products in your shopping cart</caption>
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Subtotal</th>
-                            <th></th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col"><span class="visually-hidden">Actions</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,23 +51,32 @@
                                 <td>
                                     <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-inline">
                                         <input type="hidden" name="productId" value="@item.Product.Id" />
-                                        <input type="number" name="quantity" value="@item.Quantity" min="1" max="99" class="form-control form-control-sm" style="width: 70px;" onchange="this.form.submit()" />
+                                        <label for="quantity-@item.Product.Id" class="visually-hidden">Quantity for @item.Product.Name</label>
+                                        <input id="quantity-@item.Product.Id" type="number" name="quantity" value="@item.Quantity"
+                                               min="0" required class="form-control form-control-sm" style="width: 80px;"
+                                               aria-describedby="@(feedbackProductId == item.Product.Id ? "quantity-help cart-feedback" : "quantity-help")"
+                                               aria-invalid="@(feedbackProductId == item.Product.Id && rejected ? "true" : null)" />
+                                        <button type="submit" class="btn btn-sm btn-outline-primary mt-1">
+                                            Update<span class="visually-hidden"> @item.Product.Name</span>
+                                        </button>
                                     </form>
                                 </td>
                                 <td>$@((item.Product.Price * item.Quantity).ToString("F2"))</td>
                                 <td>
                                     <form asp-controller="Cart" asp-action="RemoveFromCart" method="post" class="d-inline">
                                         <input type="hidden" name="productId" value="@item.Product.Id" />
-                                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">Remove<span class="visually-hidden"> @item.Product.Name</span></button>
                                     </form>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
+                </div>
             </div>
 
             <div class="col-md-4">
+                <partial name="_CartFeedback" />
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Order Summary</h5>

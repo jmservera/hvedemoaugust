@@ -1,10 +1,13 @@
 ﻿@model List<ZavaStorefront.Models.Product>
 @{
     ViewData["Title"] = "Products";
+    var feedbackProductId = TempData.Peek("CartProductId") as int?;
+    var rejected = TempData.Peek("CartRejected") as bool? == true;
 }
 
 <div class="container mt-4">
     <h1 class="mb-4">Our Products</h1>
+    <partial name="_CartFeedback" />
 
     <div class="row">
         @foreach (var product in Model)
@@ -17,9 +20,18 @@
                         <p class="card-text flex-grow-1">@product.Description</p>
                         <div class="mt-auto">
                             <p class="card-text"><strong>$@product.Price.ToString("F2")</strong></p>
+                            <p id="stock-@product.Id" class="fw-semibold">@product.StockDescription</p>
                             <form asp-controller="Home" asp-action="AddToCart" method="post">
                                 <input type="hidden" name="productId" value="@product.Id" />
-                                <button type="submit" class="btn btn-primary w-100">Buy</button>
+                                <label for="quantity-@product.Id" class="form-label">
+                                    Quantity<span class="visually-hidden"> for @product.Name</span>
+                                </label>
+                                <input id="quantity-@product.Id" type="number" name="quantity" value="1" min="1"
+                                       required disabled="@product.IsOutOfStock" class="form-control mb-2"
+                                       aria-describedby="@(feedbackProductId == product.Id ? $"stock-{product.Id} cart-feedback" : $"stock-{product.Id}")"
+                                       aria-invalid="@(feedbackProductId == product.Id && rejected ? "true" : null)" />
+                                <button type="submit" class="btn btn-primary w-100" disabled="@product.IsOutOfStock"
+                                        aria-describedby="stock-@product.Id">Buy<span class="visually-hidden"> @product.Name</span></button>
                             </form>
                         </div>
                     </div>

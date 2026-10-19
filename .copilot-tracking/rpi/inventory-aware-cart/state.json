@@ -1,0 +1,88 @@
+{
+  "task_id": "inventory-aware-cart-2026-10-19",
+  "task_slug": "inventory-aware-cart",
+  "parent_task": null,
+  "mode": "automatic",
+  "active_phase": "Follow-up",
+  "status": "completed",
+  "session_status": "stopped",
+  "artifact_paths": {
+    "research": ".copilot-tracking/research/2026-10-19/inventory-aware-cart-research.md",
+    "plan": ".copilot-tracking/plans/2026-10-19/inventory-aware-cart-plan.md",
+    "critique": ".copilot-tracking/reviews/plans/2026-10-19/inventory-aware-cart-plan-critique.md",
+    "changes": ".copilot-tracking/changes/2026-10-19/inventory-aware-cart-changes.md",
+    "review": ".copilot-tracking/reviews/logs/2026-10-19/inventory-aware-cart-review.md"
+  },
+  "confirmed_decisions": [
+    {
+      "decision": "Automatic session scope",
+      "status": "current",
+      "evidence": "User requested building docs/prds/inventory-aware-cart.md for a local demo and chose end-to-end mode. Root: .copilot-tracking/rpi/inventory-aware-cart/state.json. Writes limited to related storefront code, tests, documentation and workflow evidence. Acceptance: FR-001..010 and NFR-001..009, preserving static catalog, session behavior, prices/images and checkout; no database, reservation, payments, deployment, tracker mutation, commits or publishing. Owner browser/assistive-technology checks remain human review."
+    },
+    {
+      "decision": "Automatic progression boundary",
+      "status": "through-review",
+      "evidence": "User selected end-to-end mode."
+    },
+    {
+      "decision": "Research decision participation",
+      "status": "agent-owned",
+      "evidence": "End-to-end selection."
+    },
+    {
+      "decision": "Planning decision participation",
+      "status": "agent-owned",
+      "evidence": "End-to-end selection."
+    },
+    {
+      "decision": "Follow-up decision participation",
+      "status": "agent-owned",
+      "evidence": "End-to-end selection."
+    },
+    {
+      "decision": "Review decision record",
+      "status": "current",
+      "evidence": ".copilot-tracking/reviews/logs/2026-10-19/inventory-aware-cart-review.md; latest event RD-007; revision 3. Canonical Parent Decision Record owns participation, Complete execution, Residual work outcome and required follow-up routes."
+    },
+    {
+      "decision": "Planning critique execution",
+      "status": "completed",
+      "evidence": "Current-run initial attempt inventory-initial-01, task inventory-aware-cart-2026-10-19, standard depth. Hash 33ed772385c41259d8a23e9bbe74dc07c0d4f30f6ad19a6c4ba532e758b2d7a6 using rpi-plan-assessment-v1 via Get-PlanAssessmentHash.ps1. Output .copilot-tracking/reviews/plans/2026-10-19/inventory-aware-cart-plan-critique.md. Invocation completed; assessment Complete/produced; verdict Pass; no findings. Exact projection inventory-initial-01-identity.json beside critique. Generic recovery used 0; infrastructure retries used 0."
+    },
+    {
+      "decision": "Planning critique depth",
+      "status": "standard",
+      "evidence": "Bounded demo increment; default."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "RV-001",
+      "summary": "Required owner desktop Chrome/Edge and real assistive-technology acceptance evidence is pending; automated keyboard/tree checks passed.",
+      "resolution": "Owner performs README walkthrough and records browser versions, viewports, assistive technology and results."
+    },
+    {
+      "id": "RV-002",
+      "summary": "Clean-output build/test passed, but genuine clean-checkout verification of a deliberately versioned candidate is unavailable.",
+      "resolution": "After human review and deliberate versioning, run documented build/test from a fresh checkout. No commit or publication was authorized."
+    }
+  ],
+  "next_action": {
+    "phase": "Follow-up",
+    "action": "Await required owner Chrome/Edge and real AT results (RV-001), then fresh-checkout build/test evidence after deliberate versioning (RV-002). No code correction or automatic child selected."
+  },
+  "prioritized_follow_ups": [
+    {
+      "rank": 1,
+      "task": "Owner desktop Chrome/Edge and real AT acceptance",
+      "rationale": "Required in-scope evidence, not an observed code defect; cannot be replaced by an automatic child.",
+      "evidence": "Review RV-001 and Parent Decision Record RD-005/RD-007; README walkthrough."
+    },
+    {
+      "rank": 2,
+      "task": "Genuine clean-checkout build and test",
+      "rationale": "Required delivery evidence after human review and deliberate candidate versioning; clean-output checks already pass.",
+      "evidence": "Review RV-002 and Parent Decision Record RD-006/RD-007."
+    }
+  ]
+}

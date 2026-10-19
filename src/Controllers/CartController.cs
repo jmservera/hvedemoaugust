@@ -23,10 +23,24 @@ namespace ZavaStorefront.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateQuantity(int productId, int quantity)
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateQuantity(int? productId, int? quantity)
         {
-            _logger.LogInformation("Updating product {ProductId} quantity to {Quantity}", productId, quantity);
-            _cartService.UpdateQuantity(productId, quantity);
+            if (!ModelState.IsValid)
+            {
+                quantity = null;
+            }
+            var result = _cartService.UpdateQuantity(productId.GetValueOrDefault(), quantity);
+            if (result.Message != null)
+            {
+                TempData["CartMessage"] = result.Message;
+                TempData["CartProductId"] = result.ProductId;
+                TempData["CartRejected"] = !result.Succeeded;
+            }
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("Updated product {ProductId} quantity to {Quantity}", result.ProductId, quantity);
+            }
             return RedirectToAction("Index");
         }
 

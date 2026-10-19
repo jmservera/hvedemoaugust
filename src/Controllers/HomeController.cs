@@ -26,17 +26,23 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddToCart(int productId)
+    [ValidateAntiForgeryToken]
+    public IActionResult AddToCart(int? productId, int? quantity = 1)
     {
-        var product = _productService.GetProductById(productId);
-        if (product != null)
+        if (!ModelState.IsValid)
         {
-            _logger.LogInformation("Adding product {ProductId} ({ProductName}) to cart", productId, product.Name);
-            _cartService.AddToCart(productId);
+            quantity = null;
         }
-        else
+        var result = _cartService.AddToCart(productId.GetValueOrDefault(), quantity);
+        if (result.Message != null)
         {
-            _logger.LogWarning("Attempted to add non-existent product {ProductId} to cart", productId);
+            TempData["CartMessage"] = result.Message;
+            TempData["CartProductId"] = result.ProductId;
+            TempData["CartRejected"] = !result.Succeeded;
+        }
+        if (result.Succeeded)
+        {
+            _logger.LogInformation("Added product {ProductId} to cart", result.ProductId);
         }
 
         return RedirectToAction("Index");

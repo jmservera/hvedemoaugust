@@ -1,4 +1,6 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+const cartFeedback = document.querySelector("[data-cart-feedback]");
+if (cartFeedback) {
+    const target = document.getElementById(cartFeedback.dataset.focusTarget);
+    const focusTarget = target && !target.disabled ? target : cartFeedback;
+    focusTarget.focus();
+}

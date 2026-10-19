@@ -1,0 +1,13 @@
+@{
+    var message = TempData["CartMessage"] as string;
+    var productId = TempData["CartProductId"] as int?;
+    var rejected = TempData["CartRejected"] as bool? == true;
+}
+@if (message != null)
+{
+    <div id="cart-feedback" class="alert @(rejected ? "alert-warning" : "alert-info")"
+         role="@(rejected ? "alert" : "status")" aria-atomic="true" tabindex="-1"
+         data-cart-feedback data-focus-target="quantity-@productId">
+        @message
+    </div>
+}

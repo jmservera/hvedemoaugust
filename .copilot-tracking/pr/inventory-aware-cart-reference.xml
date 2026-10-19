@@ -1,0 +1,720 @@
+<commit_history>
+  <current_branch>
+    octdemo
+  </current_branch>
+
+  <base_branch>
+    origin/main
+  </base_branch>
+
+  <commits>
+
+  </commits>
+
+  <full_diff>
+  diff --git a/src/Controllers/CartController.cs b/src/Controllers/CartController.cs
+  index db16a4e..d3bc0c3 100644
+  --- a/src/Controllers/CartController.cs
+  +++ b/src/Controllers/CartController.cs
+  @@ -23,10 +23,24 @@ namespace ZavaStorefront.Controllers
+           }
+   
+           [HttpPost]
+  -        public IActionResult UpdateQuantity(int productId, int quantity)
+  +        [ValidateAntiForgeryToken]
+  +        public IActionResult UpdateQuantity(int? productId, int? quantity)
+           {
+  -            _logger.LogInformation("Updating product {ProductId} quantity to {Quantity}", productId, quantity);
+  -            _cartService.UpdateQuantity(productId, quantity);
+  +            if (!ModelState.IsValid)
+  +            {
+  +                quantity = null;
+  +            }
+  +            var result = _cartService.UpdateQuantity(productId.GetValueOrDefault(), quantity);
+  +            if (result.Message != null)
+  +            {
+  +                TempData["CartMessage"] = result.Message;
+  +                TempData["CartProductId"] = result.ProductId;
+  +                TempData["CartRejected"] = !result.Succeeded;
+  +            }
+  +            if (result.Succeeded)
+  +            {
+  +                _logger.LogInformation("Updated product {ProductId} quantity to {Quantity}", result.ProductId, quantity);
+  +            }
+               return RedirectToAction("Index");
+           }
+   
+  diff --git a/src/Controllers/HomeController.cs b/src/Controllers/HomeController.cs
+  index d168bd9..5334d76 100644
+  --- a/src/Controllers/HomeController.cs
+  +++ b/src/Controllers/HomeController.cs
+  @@ -26,17 +26,23 @@ public class HomeController : Controller
+       }
+   
+       [HttpPost]
+  -    public IActionResult AddToCart(int productId)
+  +    [ValidateAntiForgeryToken]
+  +    public IActionResult AddToCart(int? productId, int? quantity = 1)
+       {
+  -        var product = _productService.GetProductById(productId);
+  -        if (product != null)
+  +        if (!ModelState.IsValid)
+           {
+  -            _logger.LogInformation("Adding product {ProductId} ({ProductName}) to cart", productId, product.Name);
+  -            _cartService.AddToCart(productId);
+  +            quantity = null;
+           }
+  -        else
+  +        var result = _cartService.AddToCart(productId.GetValueOrDefault(), quantity);
+  +        if (result.Message != null)
+           {
+  -            _logger.LogWarning("Attempted to add non-existent product {ProductId} to cart", productId);
+  +            TempData["CartMessage"] = result.Message;
+  +            TempData["CartProductId"] = result.ProductId;
+  +            TempData["CartRejected"] = !result.Succeeded;
+  +        }
+  +        if (result.Succeeded)
+  +        {
+  +            _logger.LogInformation("Added product {ProductId} to cart", result.ProductId);
+           }
+   
+           return RedirectToAction("Index");
+  diff --git a/src/Models/Product.cs b/src/Models/Product.cs
+  index 27fb91c..04f9d16 100644
+  --- a/src/Models/Product.cs
+  +++ b/src/Models/Product.cs
+  @@ -7,5 +7,15 @@ namespace ZavaStorefront.Models
+           public string Description { get; set; }
+           public decimal Price { get; set; }
+           public string ImageUrl { get; set; }
+  +        public int AvailableQuantity { get; set; }
+  +
+  +        public bool IsOutOfStock => AvailableQuantity == 0;
+  +
+  +        public string StockDescription => AvailableQuantity switch
+  +        {
+  +            0 => "Out of stock",
+  +            <= 5 => $"{AvailableQuantity} left in stock",
+  +            _ => "In stock"
+  +        };
+       }
+   }
+  diff --git a/src/Program.cs b/src/Program.cs
+  index 9355c56..5558cd6 100644
+  --- a/src/Program.cs
+  +++ b/src/Program.cs
+  @@ -43,3 +43,5 @@ app.MapControllerRoute(
+       pattern: "{controller=Home}/{action=Index}/{id?}");
+   
+   app.Run();
+  +
+  +public partial class Program { }
+  diff --git a/src/README.md b/src/README.md
+  index 1d03948..a28a7bf 100644
+  --- a/src/README.md
+  +++ b/src/README.md
+  @@ -1,14 +1,27 @@
+  -# Zava Storefront - ASP.NET Core MVC
+  +---
+  +title: Zava Storefront
+  +description: Run and verify the local ASP.NET Core inventory-aware cart demo.
+  +---
+   
+  -A simple e-commerce storefront application built with .NET 6 ASP.NET MVC.
+  +## Local demo
+  +
+  +The storefront uses ASP.NET Core MVC on .NET 6, responsive Razor/Bootstrap
+  +views, a static ten-product catalog, and a session-backed cart. Checkout
+  +confirms the demo journey and clears the cart; it does not process payment,
+  +create an order, reserve stock, or decrement availability.
+  +
+  +The [Inventory-Aware Cart PRD](../docs/prds/inventory-aware-cart.md) is approved
+  +for this local demo only, not an authoritative shared-release document.
+   
+   ## Features
+   
+  -- **Product Listing**: Browse a catalog of 8 sample products with images, descriptions, and prices
+  +- **Product Listing**: Browse ten products with stock text, images, descriptions, and unchanged prices
+   - **Shopping Cart**: Add products to cart with session-based storage
+   - **Cart Management**: View cart, update quantities, remove items
+   - **Checkout**: Simple checkout process that clears cart and shows success message
+   - **Responsive Design**: Mobile-friendly layout using Bootstrap 5
+  +- **Inventory Validation**: Adds include quantities already in the cart; updates set the total quantity
+  +- **Recovery Feedback**: Rejections preserve the cart and return to the originating page with associated feedback
+   
+   ## Technology Stack
+   
+  @@ -48,56 +61,47 @@ ZavaStorefront/
+   
+   ## How to Run
+   
+  -1. Navigate to the project directory:
+  -   ```bash
+  -   cd ZavaStorefront
+  -   ```
+  +From the repository root, with the .NET SDK and .NET 6 ASP.NET Core runtime installed:
+   
+  -2. Run the application:
+  -   ```bash
+  -   dotnet run
+  -   ```
+  +```powershell
+  +$env:ASPNETCORE_ENVIRONMENT = "Development"
+  +dotnet run --project src\ZavaStorefront.csproj --no-launch-profile --urls http://localhost:5186
+  +```
+   
+  -3. Open your browser and navigate to:
+  -   ```
+  -   https://localhost:5001
+  -   ```
+  +Open <http://localhost:5186>. .NET 6 is out of support; upgrading the runtime
+  +is separate work, not part of this demo.
+   
+   ## Product Images
+   
+  -The application includes 8 sample products. Product images are referenced from:
+  -- `/wwwroot/images/products/`
+  -
+  -If images are not found, the application automatically falls back to placeholder images from placeholder.com.
+  -
+  -To add custom product images, place JPG files in `wwwroot/images/products/` with these names:
+  -- headphones.jpg
+  -- smartwatch.jpg
+  -- speaker.jpg
+  -- charger.jpg
+  -- usb-hub.jpg
+  -- keyboard.jpg
+  -- mouse.jpg
+  -- webcam.jpg
+  +The existing catalog image URLs at picsum.photos and the placeholder fallback
+  +are unchanged. Images require network access.
+   
+   ## Sample Products
+   
+  -1. Wireless Bluetooth Headphones - $89.99
+  -2. Smart Fitness Watch - $199.99
+  -3. Portable Bluetooth Speaker - $49.99
+  -4. Wireless Charging Pad - $29.99
+  -5. USB-C Hub Adapter - $39.99
+  -6. Mechanical Gaming Keyboard - $119.99
+  -7. Ergonomic Wireless Mouse - $34.99
+  -8. HD Webcam - $69.99
+  +| ID | Product | Price | Available quantity |
+  +|----|---------|-------|--------------------|
+  +| 1 | Wireless Noise-Canceling Headphones | $199.99 | 3 |
+  +| 2 | Smart Fitness Watch | $149.95 | 0 |
+  +| 3 | 4K Action Camera | $129.50 | 1 |
+  +| 4 | Bluetooth Speaker | $89.99 | 5 |
+  +| 5 | Laptop Stand | $39.95 | 6 |
+  +| 6 | Mechanical Keyboard | $99.00 | 12 |
+  +| 7 | Ergonomic Office Chair | $249.00 | 8 |
+  +| 8 | USB-C Hub Docking Station | $59.99 | 15 |
+  +| 9 | Smart LED Light Bulb | $24.99 | 20 |
+  +| 10 | Electric Standing Desk | $499.00 | 2 |
+  +
+  +Stock descriptions show "Out of stock" at zero, an exact count from 1 through
+  +5, and "In stock" above 5 without the listing count. Out-of-stock add controls
+  +are disabled; server validation also rejects forged requests.
+   
+   ## Application Flow
+   
+   1. **Landing Page**: Displays all products in a responsive grid
+  -2. **Add to Cart**: Click "Buy" button to add products to cart
+  +2. **Add to Cart**: Choose a quantity and click "Buy"; repeated adds count units already in the cart
+   3. **View Cart**: Click cart icon (top right) to view cart contents
+  -4. **Update Cart**: Modify quantities or remove items
+  -5. **Checkout**: Click "Checkout" button to complete purchase
+  +4. **Update Cart**: Set a total quantity and select "Update"; 0 removes the line, while a zero add is rejected
+  +5. **Checkout**: Click "Checkout" to confirm the demo without a commercial transaction
+   6. **Success**: View confirmation and return to products
+   
+   ## Session Management
+  @@ -116,3 +120,40 @@ The application includes structured logging for:
+   - Checkout process
+   
+   Logs are written to console during development.
+  +
+  +Inventory rejections emit structured warnings with `ProductId`,
+  +`RequestedQuantity`, `ResultingQuantity`, `AvailableQuantity`, `Operation`
+  +and `Reason`. Invalid products use `Reason=product-not-found` and omit
+  +`AvailableQuantity`. Logs do not include serialized carts, session IDs,
+  +customer information or credentials. No customer analytics or business-metric
+  +collection was added.
+  +
+  +## Automated validation
+  +
+  +From the repository root:
+  +
+  +```powershell
+  +dotnet build src\ZavaStorefront.sln
+  +dotnet test tests\ZavaStorefront.Tests\ZavaStorefront.Tests.csproj
+  +```
+  +
+  +The xUnit tests cover catalog fixtures, boundary and repeated adds, updates,
+  +zero behavior, overflow, malformed inputs, invalid products, warning fields,
+  +antiforgery, one-time feedback, session isolation, removal and checkout.
+  +
+  +## Demo walkthrough and owner review
+  +
+  +1. Inspect stock text for the watch (0), camera (1), speaker (5), and stand (6).
+  +2. Add three headphones, then try one more. Confirm exact-limit acceptance
+  +   and a rejection that leaves the cart unchanged.
+  +3. In the cart, update headphones to 4. Confirm the previous quantity of 3,
+  +   feedback near the summary, and keyboard focus on the affected quantity.
+  +4. Update to 0 to remove the headphones. Add another item and use Remove.
+  +5. Check out and confirm an empty cart with unchanged catalog stock.
+  +
+  +Owner review remains required in desktop Chrome and Edge. Record browser
+  +versions, viewport size and assistive technology used. Verify that feedback
+  +is announced, associated with the affected control and recoverable using only
+  +the keyboard, including a no-JavaScript pass. Automated markup and focus
+  +checks are not a substitute for real screen-reader review or certification.
+  +Business outcome measurement remains deferred until after the demo.
+  diff --git a/src/Services/CartService.cs b/src/Services/CartService.cs
+  index 22add65..015592d 100644
+  --- a/src/Services/CartService.cs
+  +++ b/src/Services/CartService.cs
+  @@ -7,11 +7,14 @@ namespace ZavaStorefront.Services
+       {
+           private const string CartSessionKey = "ShoppingCart";
+           private readonly IHttpContextAccessor _httpContextAccessor;
+  +        private readonly ILogger<CartService> _logger;
+           private readonly ProductService _productService;
+   
+  -        public CartService(IHttpContextAccessor httpContextAccessor, ProductService productService)
+  +        public CartService(IHttpContextAccessor httpContextAccessor, ProductService productService,
+  +            ILogger<CartService> logger)
+           {
+               _httpContextAccessor = httpContextAccessor;
+  +            _logger = logger;
+               _productService = productService;
+           }
+   
+  @@ -28,32 +31,38 @@ namespace ZavaStorefront.Services
+               return JsonSerializer.Deserialize<List<CartItem>>(cartJson) ?? new List<CartItem>();
+           }
+   
+  -        public void AddToCart(int productId)
+  +        public CartMutationResult AddToCart(int productId, int? quantity = 1)
+           {
+  -            var cart = GetCart();
+               var product = _productService.GetProductById(productId);
+  -
+               if (product == null)
+               {
+  -                return;
+  +                return RejectMissingProduct(productId, quantity, "add");
+               }
+   
+  +            var cart = GetCart();
+               var existingItem = cart.FirstOrDefault(item => item.Product.Id == productId);
+  +            var resultingQuantity = (long)(existingItem?.Quantity ?? 0) + quantity.GetValueOrDefault();
+  +            var rejection = ValidateQuantity(product, quantity, resultingQuantity, "add");
+  +            if (rejection != null)
+  +            {
+  +                return rejection;
+  +            }
+   
+               if (existingItem != null)
+               {
+  -                existingItem.Quantity++;
+  +                existingItem.Quantity = (int)resultingQuantity;
+               }
+               else
+               {
+                   cart.Add(new CartItem
+                   {
+                       Product = product,
+  -                    Quantity = 1
+  +                    Quantity = quantity.GetValueOrDefault()
+                   });
+               }
+   
+               SaveCart(cart);
+  +            return new CartMutationResult(true, productId);
+           }
+   
+           public void RemoveFromCart(int productId)
+  @@ -68,23 +77,41 @@ namespace ZavaStorefront.Services
+               }
+           }
+   
+  -        public void UpdateQuantity(int productId, int quantity)
+  +        public CartMutationResult UpdateQuantity(int productId, int? quantity)
+           {
+  +            var product = _productService.GetProductById(productId);
+  +            if (product == null)
+  +            {
+  +                return RejectMissingProduct(productId, quantity, "update");
+  +            }
+  +
+               var cart = GetCart();
+               var item = cart.FirstOrDefault(i => i.Product.Id == productId);
+  +            if (item == null)
+  +            {
+  +                _logger.LogWarning(
+  +                    "Cart mutation rejected: {Operation} product {ProductId}, requested {RequestedQuantity}, reason {Reason}",
+  +                    "update", productId, quantity, "cart-item-not-found");
+  +                return new CartMutationResult(false, productId,
+  +                    "This item is no longer in your cart. Return to the catalog to add it again.");
+  +            }
+   
+  -            if (item != null)
+  +            if (quantity <= 0)
+               {
+  -                if (quantity <= 0)
+  -                {
+  -                    cart.Remove(item);
+  -                }
+  -                else
+  -                {
+  -                    item.Quantity = quantity;
+  -                }
+  +                cart.Remove(item);
+                   SaveCart(cart);
+  +                return new CartMutationResult(true, productId, "Item removed from your cart.");
+               }
+  +
+  +            var rejection = ValidateQuantity(product, quantity, quantity.GetValueOrDefault(), "update");
+  +            if (rejection != null)
+  +            {
+  +                return rejection;
+  +            }
+  +
+  +            item.Quantity = quantity.GetValueOrDefault();
+  +            SaveCart(cart);
+  +            return new CartMutationResult(true, productId);
+           }
+   
+           public void ClearCart()
+  @@ -105,6 +132,37 @@ namespace ZavaStorefront.Services
+               return cart.Sum(item => item.Product.Price * item.Quantity);
+           }
+   
+  +        private CartMutationResult RejectMissingProduct(int productId, int? quantity, string operation)
+  +        {
+  +            _logger.LogWarning(
+  +                "Cart mutation rejected: {Operation} product {ProductId}, requested {RequestedQuantity}, reason {Reason}",
+  +                operation, productId, quantity, "product-not-found");
+  +            return new CartMutationResult(false, productId,
+  +                "This product is unavailable. Return to the catalog and choose another product.");
+  +        }
+  +
+  +        private CartMutationResult? ValidateQuantity(Product product, int? requestedQuantity,
+  +            long resultingQuantity, string operation)
+  +        {
+  +            if (requestedQuantity > 0 && resultingQuantity <= product.AvailableQuantity)
+  +            {
+  +                return null;
+  +            }
+  +
+  +            var reason = requestedQuantity is null or <= 0 ? "invalid-quantity" : "inventory-limit";
+  +            _logger.LogWarning(
+  +                "Cart mutation rejected: {Operation} product {ProductId}, requested {RequestedQuantity}, resulting {ResultingQuantity}, available {AvailableQuantity}, reason {Reason}",
+  +                operation, product.Id, requestedQuantity, resultingQuantity, product.AvailableQuantity, reason);
+  +
+  +            var message = requestedQuantity is null or <= 0
+  +                ? "Choose a quantity of at least 1. Your cart has not changed."
+  +                : product.IsOutOfStock
+  +                    ? "0 available. This product is out of stock. Your cart has not changed. Choose another product."
+  +                    : $"Only {product.AvailableQuantity} available. Your cart has not changed. Choose a total quantity of {product.AvailableQuantity} or fewer.";
+  +
+  +            return new CartMutationResult(false, product.Id, message);
+  +        }
+  +
+           private void SaveCart(List<CartItem> cart)
+           {
+               var session = _httpContextAccessor.HttpContext.Session;
+  diff --git a/src/Services/ProductService.cs b/src/Services/ProductService.cs
+  index c0f8193..fb3c382 100644
+  --- a/src/Services/ProductService.cs
+  +++ b/src/Services/ProductService.cs
+  @@ -9,6 +9,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 1,
+  +                AvailableQuantity = 3,
+                   Name = "Wireless Noise-Canceling Headphones",
+                   Description = "Over-ear Bluetooth headphones with active noise cancellation and 30-hour battery life.",
+                   Price = 199.99m,
+  @@ -17,6 +18,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 2,
+  +                AvailableQuantity = 0,
+                   Name = "Smart Fitness Watch",
+                   Description = "Tracks steps, heart rate, and sleep with a high-resolution AMOLED display.",
+                   Price = 149.95m,
+  @@ -25,6 +27,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 3,
+  +                AvailableQuantity = 1,
+                   Name = "4K Action Camera",
+                   Description = "Waterproof sports camera with 4K video recording and wide-angle lens.",
+                   Price = 129.50m,
+  @@ -33,6 +36,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 4,
+  +                AvailableQuantity = 5,
+                   Name = "Bluetooth Speaker",
+                   Description = "Portable waterproof Bluetooth speaker with deep bass and 12-hour playtime.",
+                   Price = 89.99m,
+  @@ -41,6 +45,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 5,
+  +                AvailableQuantity = 6,
+                   Name = "Laptop Stand",
+                   Description = "Adjustable aluminum stand compatible with all MacBook and Windows laptops.",
+                   Price = 39.95m,
+  @@ -49,6 +54,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 6,
+  +                AvailableQuantity = 12,
+                   Name = "Mechanical Keyboard",
+                   Description = "RGB backlit mechanical keyboard with blue switches and detachable wrist rest.",
+                   Price = 99.00m,
+  @@ -57,6 +63,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 7,
+  +                AvailableQuantity = 8,
+                   Name = "Ergonomic Office Chair",
+                   Description = "High-back mesh chair with adjustable lumbar support and headrest.",
+                   Price = 249.00m,
+  @@ -65,6 +72,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 8,
+  +                AvailableQuantity = 15,
+                   Name = "USB-C Hub Docking Station",
+                   Description = "8-in-1 hub with HDMI, USB 3.0, SD card reader, and 100W PD charging.",
+                   Price = 59.99m,
+  @@ -73,6 +81,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 9,
+  +                AvailableQuantity = 20,
+                   Name = "Smart LED Light Bulb",
+                   Description = "Wi-Fi enabled color-changing LED bulb compatible with Alexa and Google Home.",
+                   Price = 24.99m,
+  @@ -81,6 +90,7 @@ namespace ZavaStorefront.Services
+               new Product
+               {
+                   Id = 10,
+  +                AvailableQuantity = 2,
+                   Name = "Electric Standing Desk",
+                   Description = "Adjustable height desk with dual motors and memory presets.",
+                   Price = 499.00m,
+  @@ -93,7 +103,7 @@ namespace ZavaStorefront.Services
+               return _products;
+           }
+   
+  -        public Product GetProductById(int id)
+  +        public Product? GetProductById(int id)
+           {
+               return _products.FirstOrDefault(p => p.Id == id);
+           }
+  diff --git a/src/Views/Cart/Index.cshtml b/src/Views/Cart/Index.cshtml
+  index f33c700..7f447e6 100644
+  --- a/src/Views/Cart/Index.cshtml
+  +++ b/src/Views/Cart/Index.cshtml
+  @@ -1,6 +1,8 @@
+   @model List<ZavaStorefront.Models.CartItem>
+   @{
+       ViewData["Title"] = "Shopping Cart";
+  +    var feedbackProductId = TempData.Peek("CartProductId") as int?;
+  +    var rejected = TempData.Peek("CartRejected") as bool? == true;
+   }
+   
+   <div class="container mt-4">
+  @@ -8,6 +10,7 @@
+   
+       @if (!Model.Any())
+       {
+  +        <partial name="_CartFeedback" />
+           <div class="alert alert-info">
+               <h4>Your cart is empty</h4>
+               <p>Start shopping to add items to your cart.</p>
+  @@ -16,16 +19,19 @@
+       }
+       else
+       {
+  +        <p id="quantity-help">Choose a total quantity, then select Update. Use 0 to remove an item.</p>
+           <div class="row">
+               <div class="col-md-8">
+  +                <div class="table-responsive">
+                   <table class="table">
+  +                    <caption class="visually-hidden">Products in your shopping cart</caption>
+                       <thead>
+                           <tr>
+  -                            <th>Product</th>
+  -                            <th>Price</th>
+  -                            <th>Quantity</th>
+  -                            <th>Subtotal</th>
+  -                            <th></th>
+  +                            <th scope="col">Product</th>
+  +                            <th scope="col">Price</th>
+  +                            <th scope="col">Quantity</th>
+  +                            <th scope="col">Subtotal</th>
+  +                            <th scope="col"><span class="visually-hidden">Actions</span></th>
+                           </tr>
+                       </thead>
+                       <tbody>
+  @@ -45,23 +51,32 @@
+                                   <td>
+                                       <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-inline">
+                                           <input type="hidden" name="productId" value="@item.Product.Id" />
+  -                                        <input type="number" name="quantity" value="@item.Quantity" min="1" max="99" class="form-control form-control-sm" style="width: 70px;" onchange="this.form.submit()" />
+  +                                        <label for="quantity-@item.Product.Id" class="visually-hidden">Quantity for @item.Product.Name</label>
+  +                                        <input id="quantity-@item.Product.Id" type="number" name="quantity" value="@item.Quantity"
+  +                                               min="0" required class="form-control form-control-sm" style="width: 80px;"
+  +                                               aria-describedby="@(feedbackProductId == item.Product.Id ? "quantity-help cart-feedback" : "quantity-help")"
+  +                                               aria-invalid="@(feedbackProductId == item.Product.Id && rejected ? "true" : null)" />
+  +                                        <button type="submit" class="btn btn-sm btn-outline-primary mt-1">
+  +                                            Update<span class="visually-hidden"> @item.Product.Name</span>
+  +                                        </button>
+                                       </form>
+                                   </td>
+                                   <td>$@((item.Product.Price * item.Quantity).ToString("F2"))</td>
+                                   <td>
+                                       <form asp-controller="Cart" asp-action="RemoveFromCart" method="post" class="d-inline">
+                                           <input type="hidden" name="productId" value="@item.Product.Id" />
+  -                                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+  +                                        <button type="submit" class="btn btn-sm btn-danger">Remove<span class="visually-hidden"> @item.Product.Name</span></button>
+                                       </form>
+                                   </td>
+                               </tr>
+                           }
+                       </tbody>
+                   </table>
+  +                </div>
+               </div>
+   
+               <div class="col-md-4">
+  +                <partial name="_CartFeedback" />
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Order Summary</h5>
+  diff --git a/src/Views/Home/Index.cshtml b/src/Views/Home/Index.cshtml
+  index 9fcf314..0530631 100644
+  --- a/src/Views/Home/Index.cshtml
+  +++ b/src/Views/Home/Index.cshtml
+  @@ -1,10 +1,13 @@
+   ﻿@model List<ZavaStorefront.Models.Product>
+   @{
+       ViewData["Title"] = "Products";
+  +    var feedbackProductId = TempData.Peek("CartProductId") as int?;
+  +    var rejected = TempData.Peek("CartRejected") as bool? == true;
+   }
+   
+   <div class="container mt-4">
+       <h1 class="mb-4">Our Products</h1>
+  +    <partial name="_CartFeedback" />
+   
+       <div class="row">
+           @foreach (var product in Model)
+  @@ -17,9 +20,18 @@
+                           <p class="card-text flex-grow-1">@product.Description</p>
+                           <div class="mt-auto">
+                               <p class="card-text"><strong>$@product.Price.ToString("F2")</strong></p>
+  +                            <p id="stock-@product.Id" class="fw-semibold">@product.StockDescription</p>
+                               <form asp-controller="Home" asp-action="AddToCart" method="post">
+                                   <input type="hidden" name="productId" value="@product.Id" />
+  -                                <button type="submit" class="btn btn-primary w-100">Buy</button>
+  +                                <label for="quantity-@product.Id" class="form-label">
+  +                                    Quantity<span class="visually-hidden"> for @product.Name</span>
+  +                                </label>
+  +                                <input id="quantity-@product.Id" type="number" name="quantity" value="1" min="1"
+  +                                       required disabled="@product.IsOutOfStock" class="form-control mb-2"
+  +                                       aria-describedby="@(feedbackProductId == product.Id ? $"stock-{product.Id} cart-feedback" : $"stock-{product.Id}")"
+  +                                       aria-invalid="@(feedbackProductId == product.Id && rejected ? "true" : null)" />
+  +                                <button type="submit" class="btn btn-primary w-100" disabled="@product.IsOutOfStock"
+  +                                        aria-describedby="stock-@product.Id">Buy<span class="visually-hidden"> @product.Name</span></button>
+                               </form>
+                           </div>
+                       </div>
+  diff --git a/src/Views/Shared/_Layout.cshtml b/src/Views/Shared/_Layout.cshtml
+  index 54aa513..453e789 100644
+  --- a/src/Views/Shared/_Layout.cshtml
+  +++ b/src/Views/Shared/_Layout.cshtml
+  @@ -27,7 +27,7 @@
+                       </ul>
+                       <ul class="navbar-nav">
+                           <li class="nav-item">
+  -                            <a class="nav-link position-relative" asp-controller="Cart" asp-action="Index">
+  +                            <a class="nav-link position-relative" asp-controller="Cart" asp-action="Index" aria-label="Shopping cart">
+                                   <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                                   @{
+                                       var cartCount = CartService.GetCartItemCount();
+  diff --git a/src/ZavaStorefront.sln b/src/ZavaStorefront.sln
+  index 7ceb339..321c639 100644
+  --- a/src/ZavaStorefront.sln
+  +++ b/src/ZavaStorefront.sln
+  @@ -1,19 +1,46 @@
+  +﻿
+   Microsoft Visual Studio Solution File, Format Version 12.00
+   # Visual Studio Version 17
+   VisualStudioVersion = 17.5.2.0
+   MinimumVisualStudioVersion = 10.0.40219.1
+   Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZavaStorefront", "ZavaStorefront.csproj", "{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}"
+   EndProject
+  +Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZavaStorefront.Tests", "..\tests\ZavaStorefront.Tests\ZavaStorefront.Tests.csproj", "{B54732A8-07B5-4316-8639-577F9DB708EC}"
+  +EndProject
+   Global
+   	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+   		Debug|Any CPU = Debug|Any CPU
+  +		Debug|x64 = Debug|x64
+  +		Debug|x86 = Debug|x86
+   		Release|Any CPU = Release|Any CPU
+  +		Release|x64 = Release|x64
+  +		Release|x86 = Release|x86
+   	EndGlobalSection
+   	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+   		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+   		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|x64.ActiveCfg = Debug|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|x64.Build.0 = Debug|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|x86.ActiveCfg = Debug|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Debug|x86.Build.0 = Debug|Any CPU
+   		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+   		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|Any CPU.Build.0 = Release|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|x64.ActiveCfg = Release|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|x64.Build.0 = Release|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|x86.ActiveCfg = Release|Any CPU
+  +		{059C7F5D-C1F3-FDC8-6074-DF2BE6AB5406}.Release|x86.Build.0 = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|x64.ActiveCfg = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|x64.Build.0 = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Debug|x86.Build.0 = Debug|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|Any CPU.Build.0 = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|x64.ActiveCfg = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|x64.Build.0 = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|x86.ActiveCfg = Release|Any CPU
+  +		{B54732A8-07B5-4316-8639-577F9DB708EC}.Release|x86.Build.0 = Release|Any CPU
+   	EndGlobalSection
+   	GlobalSection(SolutionProperties) = preSolution
+   		HideSolutionNode = FALSE
+  diff --git a/src/wwwroot/js/site.js b/src/wwwroot/js/site.js
+  index ac49c18..c5e44af 100644
+  --- a/src/wwwroot/js/site.js
+  +++ b/src/wwwroot/js/site.js
+  @@ -1,4 +1,6 @@
+  -﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+  -// for details on configuring this project to bundle and minify static web assets.
+  -
+  -// Write your JavaScript code.
+  +const cartFeedback = document.querySelector("[data-cart-feedback]");
+  +if (cartFeedback) {
+  +    const target = document.getElementById(cartFeedback.dataset.focusTarget);
+  +    const focusTarget = target && !target.disabled ? target : cartFeedback;
+  +    focusTarget.focus();
+  +}
+  </full_diff>
+</commit_history>
