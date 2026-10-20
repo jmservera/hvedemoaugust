@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product workspace</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font: 14px/1.6 "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; }
+button, input, textarea, select { font: inherit; }
+button, .button { cursor: pointer; border: 1px solid var(--cp-border); border-radius: 0.625rem; padding: 9px 14px; color: var(--cp-text); background: var(--cp-surface); text-decoration: none; }
+button:hover, .button:hover { border-color: var(--cp-accent); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.primary { background: var(--cp-accent); color: var(--cp-accent-fg); border-color: var(--cp-accent); }
+button.primary:hover { background: var(--cp-accent-hover); }
+:focus-visible { outline: 3px solid var(--cp-accent); outline-offset: 3px; }
+a { color: var(--cp-link); }
+h1, h2, h3, p { margin: 0 0 12px; }
+h1 { font-size: 28px; letter-spacing: -.6px; line-height: 1.2; }
+h2 { font-size: 20px; } h3 { font-size: 16px; }
+small, .muted { color: var(--cp-text-muted); }
+.eyebrow { color: var(--cp-accent); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.app { display: grid; grid-template-columns: 208px minmax(0, 1fr); min-height: 100vh; }
+aside { padding: 28px 16px; background: var(--cp-bg-elevated); border-right: 1px solid var(--cp-border); }
+.brand { padding: 0 12px 28px; font-weight: 700; font-size: 17px; line-height: 1.3; }
+.brand span { color: var(--cp-accent); }
+nav { display: grid; gap: 8px; }
+nav button { border-color: var(--cp-bg-elevated); text-align: left; background: var(--cp-bg-elevated); }
+nav button[aria-current="page"] { background: var(--cp-accent-soft); border-color: var(--cp-accent-soft); color: var(--cp-accent); font-weight: 600; }
+.aside-note { border-top: 1px solid var(--cp-border); margin: 32px 12px 0; padding-top: 20px; font-size: 12px; }
+main { padding: 32px; max-width: 1300px; width: 100%; margin: auto; align-self: start; }
+header { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 28px; }
+.badge { display: inline-block; padding: 3px 9px; border: 1px solid var(--cp-border); background: var(--cp-surface-soft); border-radius: 20px; font-size: 11px; white-space: nowrap; }
+.hero { background: var(--cp-bg-elevated); padding: 28px; border: 1px solid var(--cp-border); border-radius: 16px; margin-bottom: 24px; }
+.hero p { max-width: 680px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.card { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; padding: 24px; }
+.card h3 { margin: 16px 0 8px; }
+.card p { color: var(--cp-text-muted); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.between { justify-content: space-between; }
+.stack { display: grid; gap: 16px; }
+.step { color: var(--cp-accent); font-weight: 600; font-size: 12px; }
+.notice { padding: 12px 16px; border-left: 3px solid var(--cp-accent); background: var(--cp-accent-soft); border-radius: 0.625rem; margin: 20px 0; }
+#error { color: var(--cp-danger); background: var(--cp-surface); border: 1px solid var(--cp-danger); padding: 12px; border-radius: 0.625rem; margin-bottom: 20px; white-space: pre-wrap; }
+[hidden] { display: none !important; }
+label { display: grid; gap: 6px; font-weight: 600; }
+input, textarea, select { width: 100%; border: 1px solid var(--cp-border-strong); background: var(--cp-surface); color: var(--cp-text); border-radius: 0.625rem; padding: 10px 12px; }
+textarea { resize: vertical; min-height: 100px; }
+form { display: grid; gap: 16px; }
+.reader { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+.toc { display: grid; align-content: start; gap: 8px; border-right: 1px solid var(--cp-border); padding-right: 16px; }
+.toc a { color: var(--cp-text-muted); text-decoration: none; font-size: 12px; }
+.document { overflow-wrap: anywhere; max-width: 800px; }
+.document h2, .document h3, .document h4 { scroll-margin-top: 24px; margin-top: 24px; }
+.document p { white-space: pre-wrap; }
+#editor { font: 13px/1.7 Consolas, "Courier New", Courier, monospace; min-height: 480px; margin-top: 20px; }
+.source, .activity { padding: 16px 0; border-top: 1px solid var(--cp-border); overflow-wrap: anywhere; }
+.source a { font-weight: 600; }
+.empty { padding: 36px 16px; text-align: center; background: var(--cp-surface-soft); border-radius: 0.625rem; }
+.actions { margin-top: 20px; }
+dialog { color: var(--cp-text); background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; padding: 28px; max-width: 520px; width: calc(100% - 32px); }
+dialog::backdrop { background: var(--cp-overlay); }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .app { grid-template-columns: 164px minmax(0, 1fr); } main { padding: 24px 20px; } .reader { grid-template-columns: 1fr; } .toc { border-right: 0; border-bottom: 1px solid var(--cp-border); padding-bottom: 16px; } }
+@media (max-width: 580px) { .app { display: block; } aside { border-right: 0; border-bottom: 1px solid var(--cp-border); padding: 16px; } .brand { padding: 0 0 12px; } nav { display: flex; flex-wrap: wrap; gap: 4px; } .aside-note { display: none; } main { padding: 20px 16px; } header { flex-direction: column; } }
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand"><span>HVE</span><br>Product workspace</div>
+  <nav aria-label="Workspace navigation">
+    <button data-view="overview" aria-current="page">Overview</button>
+    <button data-view="BRD">Business requirements</button>
+    <button data-view="PRD">Product requirements</button>
+    <button data-view="ADR">Architecture decisions</button>
+    <button data-view="sources">Confluence &amp; sources</button>
+    <button data-view="activity">Agent activity</button>
+  </nav>
+  <div class="aside-note"><strong>Your expertise, accelerated.</strong><p>Describe the outcome. Work with a specialist. Review the result.</p><small>No editor or terminal required for everyday work.</small></div>
+</aside>
+<main>
+  <header><div><p class="eyebrow">HyperVelocity team workspace</p><h1 id="workspace-name">My product workspace</h1><p class="muted">From shared understanding to delivery-ready decisions.</p></div><span class="badge">Local working drafts</span></header>
+  <div id="error" role="alert" hidden></div>
+  <div id="status" role="status" aria-live="polite"></div>
+  <section id="overview" class="stack">
+    <div class="hero"><p class="eyebrow">Start with the why</p><h2>A place for the product side of your team.</h2><p class="muted">Bring your meeting evidence, shape the business and product requirements, and make decisions with your team. HVE specialists guide the writing; you stay in control.</p><button class="primary" data-view="sources">1. Connect your source material</button></div>
+    <div class="grid" id="document-cards"></div>
+    <div class="card"><h2>Set the direction</h2><p class="muted">Give your specialists enough context to ask the right questions.</p><form id="settings-form"><label>Workspace name<input id="name" maxlength="120" required></label><label>What outcome are you working toward?<textarea id="goal" maxlength="8000" placeholder="Who is this for, what problem matters, and what would success look like?"></textarea></label><button class="primary" type="submit">Save direction</button></form></div>
+    <div class="notice">Confluence is the source of truth. Local drafts are not approved documents. Jira remains the source of truth for delivery status.</div>
+  </section>
+  <section id="sources" class="stack" hidden>
+    <div class="card"><p class="eyebrow">1 / Connect the evidence</p><h2>Confluence &amp; sources</h2><p>Use your team's existing Confluence access through Copilot. No passwords or API keys are stored in this canvas.</p><div class="notice" id="connection"></div>
+      <div class="row"><button class="primary" type="button" data-task="connect">Use app connection</button><button type="button" data-task="discover">Find team documents</button></div>
+      <p class="muted">Uses the Atlassian and Jira MCP servers already configured in this app. If access is missing, enable or sign in to the existing connection in the app's MCP settings, then try again.</p>
+      <form id="connection-form"><label>Optional: narrow to a Confluence page or space URL<input id="confluence-url" type="url" placeholder="https://your-team.atlassian.net/wiki/spaces/PRODUCT" required></label><button type="submit">Save source scope</button></form>
+    </div>
+    <div class="card"><h2>Bring in a source</h2><p class="muted">A live page read preserves its URL, page ID and version. Start business and product requirements with a meeting transcript.</p>
+      <form id="import-form"><label>Confluence page URL<input id="source-url" type="url" required></label><label>What is on this page?<select id="source-kind"><option value="transcript">Meeting transcript</option><option value="BRD">Business requirements (BRD)</option><option value="PRD">Product requirements (PRD)</option><option value="ADR">Architecture decision (ADR)</option><option value="reference">Supporting reference</option></select></label><button class="primary" type="submit">Read and import with Copilot</button></form>
+      <div id="source-list"></div>
+    </div>
+  </section>
+  <section id="document-view" hidden>
+    <div class="card">
+      <div class="row between"><div><p class="eyebrow" id="doc-step"></p><h2 id="doc-title"></h2></div><span class="badge" id="doc-status"></span></div>
+      <p class="muted" id="doc-description"></p>
+      <div class="row"><button class="primary" data-task="build">Work with authoring specialist</button><button data-task="review">Request quality review</button><button id="edit-toggle">Edit draft</button><button id="publish">Request publication</button></div>
+      <p class="muted" id="agent-name"></p>
+      <div class="notice">Agent questions and permissions appear in Copilot chat. A quality review is not human approval. Publishing always requires a separate approval.</div>
+      <div id="draft-area"><div class="reader"><nav id="toc" class="toc" aria-label="Document sections"></nav><article id="document" class="document"></article></div></div>
+      <div id="edit-area" hidden><label>Working draft (Markdown)<textarea id="editor" spellcheck="true"></textarea></label><div class="row actions"><button id="save-draft" class="primary">Save draft</button><button id="cancel-edit">Discard edit</button></div></div>
+      <div id="review-result" class="notice" hidden></div>
+      <p id="publication-result" hidden></p>
+    </div>
+  </section>
+  <section id="activity" class="card" hidden><p class="eyebrow">Your specialist team</p><h2>Agent activity</h2><p class="muted">Requests are sent to your current Copilot conversation. Continue guided questions there; results appear here when the agent records an outcome.</p><div id="activity-list"></div></section>
+</main>
+</div>
+<dialog id="publish-dialog" aria-labelledby="publish-title"><h2 id="publish-title">Review before publishing</h2><p>This requests publication of the saved draft. Copilot will show the exact destination and content in chat and ask for human approval before writing to Confluence.</p><p id="publish-destination" class="muted"></p><div class="row"><button id="confirm-publish" class="primary">Request human-approved publication</button><button id="cancel-publish">Cancel</button></div></dialog>
+<script>
+const $ = (id) => document.getElementById(id);
+const descriptions = {
+  BRD: { title: "Business requirements", step: "2 / Align on the business", description: "The problem, the people, the outcomes and the boundaries. Establish why this work matters.", author: "BRD Builder", review: "BRD Quality Reviewer" },
+  PRD: { title: "Product requirements", step: "3 / Shape the product", description: "Translate shared understanding into user needs, product behavior and measurable acceptance criteria.", author: "PRD Builder", review: "PRD Quality Reviewer" },
+  ADR: { title: "Architecture decisions", step: "4 / Record the trade-offs", description: "Capture a decision, its alternatives and consequences. Partner with the team on technical choices.", author: "ADR Creator", review: "System Architecture Reviewer" }
+};
+let state, view = "overview", editing = false, busy = false, settingsDirty = false, connectionDirty = false;
+const token = new URLSearchParams(location.search).get("token");
+async function api(path, input) {
+  const response = await fetch(`${path}?token=${encodeURIComponent(token)}`, input === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(input) });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || "The workspace request failed.");
+  return data;
+}
+function error(message) { $("error").textContent = message; $("error").hidden = !message; }
+async function act(operation) {
+  if (busy) return;
+  busy = true; error(""); controls();
+  try { await operation(); } catch (failure) { error(failure.message); }
+  finally { busy = false; controls(); }
+}
+function controls() {
+  const pending = state?.jobs.some((job) => ["submitting", "submitted"].includes(job.status));
+  document.querySelectorAll("[data-task], #confirm-publish, #import-form button").forEach((button) => { button.disabled = busy || pending || editing; });
+  $("save-draft").disabled = busy;
+  $("publish").disabled = busy || pending || editing || !state?.documents.find((doc) => doc.type === view)?.review;
+}
+function text(tag, value, className) {
+  const element = document.createElement(tag);
+  element.textContent = value;
+  if (className) element.className = className;
+  return element;
+}
+function navigate(next) {
+  if (editing && !confirm("Discard the unsaved document edit?")) return;
+  editing = false; view = next; render();
+}
+function renderDocument() {
+  const doc = state.documents.find((item) => item.type === view), info = descriptions[view];
+  if (!doc) return;
+  $("doc-step").textContent = info.step;
+  $("doc-title").textContent = `${info.title} (${view})`;
+  $("doc-description").textContent = info.description;
+  $("doc-status").textContent = doc.review ? "Reviewed draft - human approval pending" : doc.content ? "Working draft" : "Not started";
+  $("agent-name").textContent = `Your specialists: ${info.author} / ${info.review}`;
+  $("draft-area").hidden = editing; $("edit-area").hidden = !editing;
+  if (editing) return;
+  $("document").replaceChildren(); $("toc").replaceChildren();
+  if (!doc.content) $("document").append(text("div", "Your document starts here. Import a Confluence source, then work with an authoring specialist.", "empty"));
+  let paragraph = [], section = 0;
+  const flush = () => { if (paragraph.length) $("document").append(text("p", paragraph.join("\n"))); paragraph = []; };
+  for (const line of doc.content.split("\n")) {
+    const match = /^(#{1,6})\s+(.+)$/.exec(line);
+    if (match) {
+      flush();
+      const heading = text(`h${Math.min(4, match[1].length + 1)}`, match[2]);
+      heading.id = `section-${section++}`; $("document").append(heading);
+      const link = text("a", match[2]); link.href = `#${heading.id}`; $("toc").append(link);
+    } else if (!line.trim()) flush();
+    else paragraph.push(line);
+  }
+  flush();
+  $("review-result").hidden = !doc.review;
+  $("review-result").textContent = doc.review ? `Quality review (not approval)\n${doc.review.summary}` : "";
+  $("review-result").style.whiteSpace = "pre-wrap";
+  $("publication-result").replaceChildren();
+  $("publication-result").hidden = !doc.published;
+  if (doc.published) {
+    const link = text("a", "Last published Confluence version");
+    link.href = doc.published.source.url; link.target = "_blank"; link.rel = "noopener noreferrer";
+    $("publication-result").append(link, text("small", ` / version ${doc.published.source.version}. Local edits may be newer.`));
+  }
+}
+function render() {
+  if (!state) return;
+  $("workspace-name").textContent = state.name;
+  document.querySelectorAll("nav [data-view]").forEach((button) => { if (button.dataset.view === view) button.setAttribute("aria-current", "page"); else button.removeAttribute("aria-current"); });
+  for (const id of ["overview", "sources", "activity"]) $(id).hidden = view !== id;
+  $("document-view").hidden = !descriptions[view];
+  if (!settingsDirty) { $("name").value = state.name; $("goal").value = state.goal; }
+  if (!connectionDirty) $("confluence-url").value = state.confluenceUrl;
+  $("connection").textContent = `${state.connection.status === "verified" ? "Verified live read" : state.connection.status === "available" ? "App connection available" : "Access unverified"}: ${state.connection.summary}`;
+  $("document-cards").replaceChildren();
+  for (const doc of state.documents) {
+    const info = descriptions[doc.type], card = text("div", "", "card");
+    card.append(text("span", info.step, "step"), text("h3", `${info.title} (${doc.type})`), text("p", info.description), text("p", doc.content ? (doc.review ? "Review recorded" : "Working draft") : "Not started", "muted"));
+    const button = text("button", doc.content ? "Open document" : "Get started"); button.onclick = () => navigate(doc.type); card.append(button); $("document-cards").append(card);
+  }
+  $("source-list").replaceChildren();
+  if (!state.sources.length) $("source-list").append(text("p", "No verified sources yet. Import a meeting transcript to begin.", "notice"));
+  for (const source of state.sources) {
+    const item = text("div", "", "source"), link = text("a", source.title);
+    link.href = source.url; link.target = "_blank"; link.rel = "noopener noreferrer";
+    item.append(link, text("p", `${source.kind} / page ${source.pageId} / version ${source.version}`, "muted"));
+    $("source-list").append(item);
+  }
+  $("activity-list").replaceChildren();
+  if (!state.jobs.length) $("activity-list").append(text("div", "No agent requests yet. Begin with Confluence & sources.", "empty"));
+  for (const job of [...state.jobs].reverse()) {
+    const item = text("div", "", "activity");
+    item.append(text("strong", `${job.type || "Confluence"} / ${job.task}`), text("span", job.status, "badge"), text("p", job.summary), text("small", new Date(job.createdAt).toLocaleString()));
+    if (["submitting", "submitted"].includes(job.status)) {
+      const button = text("button", "Mark interrupted");
+      button.onclick = () => act(async () => {
+        if (!confirm("This does not stop Copilot. It closes this pending request and rejects late results. Check chat before starting more work. Mark interrupted?")) return;
+        state = await api("/interrupt", { jobId: job.id, confirm: true }); render();
+      });
+      item.append(button);
+    }
+    $("activity-list").append(item);
+  }
+  renderDocument(); controls();
+}
+async function run(input) {
+  state = await api("/run", input); render();
+  $("status").textContent = "Request sent. Continue with your specialist in Copilot chat.";
+}
+document.querySelectorAll("[data-view]").forEach((button) => { button.onclick = () => navigate(button.dataset.view); });
+document.querySelectorAll("[data-task]").forEach((button) => { button.onclick = () => act(async () => {
+  if (connectionDirty && ["connect", "discover"].includes(button.dataset.task)) throw new Error("Save the connection URL first.");
+  await run({ task: button.dataset.task, type: descriptions[view] ? view : undefined });
+}); });
+$("settings-form").oninput = () => { settingsDirty = true; };
+$("connection-form").oninput = () => { connectionDirty = true; };
+$("settings-form").onsubmit = (event) => { event.preventDefault(); act(async () => {
+  state = await api("/save", { revision: state.revision, name: $("name").value, goal: $("goal").value, confluenceUrl: state.confluenceUrl });
+  settingsDirty = false; render(); $("status").textContent = "Direction saved.";
+}); };
+$("connection-form").onsubmit = (event) => { event.preventDefault(); act(async () => {
+  state = await api("/save", { revision: state.revision, name: state.name, goal: state.goal, confluenceUrl: $("confluence-url").value });
+  connectionDirty = false; render(); $("status").textContent = "Connection saved; access remains unverified until a live read succeeds.";
+}); };
+$("import-form").onsubmit = (event) => { event.preventDefault(); act(async () => {
+  const kind = $("source-kind").value;
+  await run({ task: "import", url: $("source-url").value, kind, type: descriptions[kind] ? kind : undefined });
+}); };
+$("edit-toggle").onclick = () => {
+  if (editing) return;
+  editing = true; $("editor").value = state.documents.find((doc) => doc.type === view).content;
+  $("editor").dataset.revision = state.revision; renderDocument(); controls(); $("editor").focus();
+};
+$("cancel-edit").onclick = () => { if (confirm("Discard the unsaved document edit?")) { editing = false; render(); } };
+$("save-draft").onclick = () => act(async () => {
+  state = await api("/save", { revision: Number($("editor").dataset.revision), type: view, content: $("editor").value });
+  editing = false; render(); $("status").textContent = "Draft saved. Any previous quality review must be repeated after changes.";
+});
+$("publish").onclick = () => { $("publish-destination").textContent = `Destination context: ${state.confluenceUrl || "Not configured"}`; $("publish-dialog").showModal(); };
+$("cancel-publish").onclick = () => $("publish-dialog").close();
+$("confirm-publish").onclick = () => act(async () => { $("publish-dialog").close(); await run({ task: "publish", type: view, confirm: true }); });
+window.addEventListener("beforeunload", (event) => { if (editing || settingsDirty || connectionDirty) { event.preventDefault(); event.returnValue = ""; } });
+async function refresh() {
+  try {
+    const next = await api("/state");
+    if (!state || next.revision !== state.revision) {
+      state = next; render();
+    }
+  } catch (failure) { error(`Unable to refresh: ${failure.message}. Your unsaved edits are still in this panel.`); }
+}
+refresh();
+setInterval(() => { if (!busy && !editing && !settingsDirty && !connectionDirty && !document.hidden) refresh(); }, 3000);
+</script>
+</body>
+</html>
